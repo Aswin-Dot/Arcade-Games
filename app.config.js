@@ -4,8 +4,8 @@ const VARIANTS = {
   snake: {
     name: "Snake Classic",
     slug: "snake-classic",
-    bundleId: "com.rngames.snake",
-    androidPackage: "com.rngames.snake",
+    bundleId: "com.theze.snake",
+    androidPackage: "com.theze.snake",
     icon: "./assets/images/icon.png",
     splash: "./assets/images/splash-icon.png",
     adaptiveForeground: "./assets/images/android-icon-foreground.png",
@@ -13,8 +13,8 @@ const VARIANTS = {
   "circle-shrink": {
     name: "Circle Shrink",
     slug: "circle-shrink",
-    bundleId: "com.rngames.circleshrink",
-    androidPackage: "com.rngames.circleshrink",
+    bundleId: "com.theze.circleshrink",
+    androidPackage: "com.theze.circleshrink",
     icon: "./assets/images/icon.png",
     splash: "./assets/images/splash-icon.png",
     adaptiveForeground: "./assets/images/android-icon-foreground.png",
@@ -22,8 +22,8 @@ const VARIANTS = {
   "laser-dodge": {
     name: "Laser Dodge",
     slug: "laser-dodge",
-    bundleId: "com.rngames.laserdodge",
-    androidPackage: "com.rngames.laserdodge",
+    bundleId: "com.theze.laserdodge",
+    androidPackage: "com.theze.laserdodge",
     icon: "./assets/images/icon.png",
     splash: "./assets/images/splash-icon.png",
     adaptiveForeground: "./assets/images/android-icon-foreground.png",
@@ -31,8 +31,8 @@ const VARIANTS = {
   "pulse-lanes": {
     name: "Pulse Lanes",
     slug: "pulse-lanes",
-    bundleId: "com.rngames.pulselanes",
-    androidPackage: "com.rngames.pulselanes",
+    bundleId: "com.theze.pulselanes",
+    androidPackage: "com.theze.pulselanes",
     icon: "./assets/images/icon.png",
     splash: "./assets/images/splash-icon.png",
     adaptiveForeground: "./assets/images/android-icon-foreground.png",
@@ -40,8 +40,8 @@ const VARIANTS = {
   "math-rush": {
     name: "Math Rush",
     slug: "math-rush",
-    bundleId: "com.rngames.mathrush",
-    androidPackage: "com.rngames.mathrush",
+    bundleId: "com.theze.mathrush",
+    androidPackage: "com.theze.mathrush",
     icon: "./assets/images/icon.png",
     splash: "./assets/images/splash-icon.png",
     adaptiveForeground: "./assets/images/android-icon-foreground.png",
@@ -49,8 +49,8 @@ const VARIANTS = {
   "gravity-flip": {
     name: "Gravity Flip",
     slug: "gravity-flip",
-    bundleId: "com.rngames.gravityflip",
-    androidPackage: "com.rngames.gravityflip",
+    bundleId: "com.theze.gravityflip",
+    androidPackage: "com.theze.gravityflip",
     icon: "./assets/images/icon.png",
     splash: "./assets/images/splash-icon.png",
     adaptiveForeground: "./assets/images/android-icon-foreground.png",
@@ -58,8 +58,8 @@ const VARIANTS = {
   "color-clash": {
     name: "Color Clash",
     slug: "color-clash",
-    bundleId: "com.rngames.colorclash",
-    androidPackage: "com.rngames.colorclash",
+    bundleId: "com.theze.colorclash",
+    androidPackage: "com.theze.colorclash",
     icon: "./assets/images/icon.png",
     splash: "./assets/images/splash-icon.png",
     adaptiveForeground: "./assets/images/android-icon-foreground.png",
@@ -67,8 +67,8 @@ const VARIANTS = {
   "stack-blocks": {
     name: "Stack Blocks",
     slug: "stack-blocks",
-    bundleId: "com.rngames.stackblocks",
-    androidPackage: "com.rngames.stackblocks",
+    bundleId: "com.theze.stackblocks",
+    androidPackage: "com.theze.stackblocks",
     icon: "./assets/images/icon.png",
     splash: "./assets/images/splash-icon.png",
     adaptiveForeground: "./assets/images/android-icon-foreground.png",
@@ -76,8 +76,8 @@ const VARIANTS = {
   "simon-says": {
     name: "Simon Says",
     slug: "simon-says",
-    bundleId: "com.rngames.simonsays",
-    androidPackage: "com.rngames.simonsays",
+    bundleId: "com.theze.simonsays",
+    androidPackage: "com.theze.simonsays",
     icon: "./assets/images/icon.png",
     splash: "./assets/images/splash-icon.png",
     adaptiveForeground: "./assets/images/android-icon-foreground.png",
@@ -85,8 +85,8 @@ const VARIANTS = {
   "number-order": {
     name: "Number Order",
     slug: "number-order",
-    bundleId: "com.rngames.numberorder",
-    androidPackage: "com.rngames.numberorder",
+    bundleId: "com.theze.numberorder",
+    androidPackage: "com.theze.numberorder",
     icon: "./assets/images/icon.png",
     splash: "./assets/images/splash-icon.png",
     adaptiveForeground: "./assets/images/android-icon-foreground.png",
@@ -94,8 +94,8 @@ const VARIANTS = {
   "tap-rhythm": {
     name: "Tap Rhythm",
     slug: "tap-rhythm",
-    bundleId: "com.rngames.taprhythm",
-    androidPackage: "com.rngames.taprhythm",
+    bundleId: "com.theze.taprhythm",
+    androidPackage: "com.theze.taprhythm",
     icon: "./assets/images/icon.png",
     splash: "./assets/images/splash-icon.png",
     adaptiveForeground: "./assets/images/android-icon-foreground.png",
@@ -103,8 +103,8 @@ const VARIANTS = {
   "brick-breaker": {
     name: "Brick Breaker",
     slug: "brick-breaker",
-    bundleId: "com.rngames.brickbreaker",
-    androidPackage: "com.rngames.brickbreaker",
+    bundleId: "com.theze.brickbreaker",
+    androidPackage: "com.theze.brickbreaker",
     icon: "./assets/images/icon.png",
     splash: "./assets/images/splash-icon.png",
     adaptiveForeground: "./assets/images/android-icon-foreground.png",
@@ -112,8 +112,8 @@ const VARIANTS = {
   "slice-frenzy": {
     name: "Slice Frenzy",
     slug: "slice-frenzy",
-    bundleId: "com.rngames.slicefrenzy",
-    androidPackage: "com.rngames.slicefrenzy",
+    bundleId: "com.theze.slicefrenzy",
+    androidPackage: "com.theze.slicefrenzy",
     icon: "./assets/images/icon.png",
     splash: "./assets/images/splash-icon.png",
     adaptiveForeground: "./assets/images/android-icon-foreground.png",
@@ -121,8 +121,8 @@ const VARIANTS = {
   "tile-shift": {
     name: "Tile Shift",
     slug: "tile-shift",
-    bundleId: "com.rngames.tileshift",
-    androidPackage: "com.rngames.tileshift",
+    bundleId: "com.theze.tileshift",
+    androidPackage: "com.theze.tileshift",
     icon: "./assets/images/icon.png",
     splash: "./assets/images/splash-icon.png",
     adaptiveForeground: "./assets/images/android-icon-foreground.png",
@@ -130,8 +130,8 @@ const VARIANTS = {
   "color-flood": {
     name: "Color Flood",
     slug: "color-flood",
-    bundleId: "com.rngames.colorflood",
-    androidPackage: "com.rngames.colorflood",
+    bundleId: "com.theze.colorflood",
+    androidPackage: "com.theze.colorflood",
     icon: "./assets/images/icon.png",
     splash: "./assets/images/splash-icon.png",
     adaptiveForeground: "./assets/images/android-icon-foreground.png",
@@ -146,12 +146,14 @@ const variant =
     : undefined;
 const selectedVariant = variant ? VARIANTS[variant] : null;
 const VARIANT_EAS_PROJECT_IDS = {
-  snake:
-    process.env.EAS_PROJECT_ID_SNAKE ||
-    "681d3af1-1308-4f47-82ee-750db188cae2",
-  "circle-shrink": process.env.EAS_PROJECT_ID_CIRCLE_SHRINK,
-  "laser-dodge": process.env.EAS_PROJECT_ID_LASER_DODGE,
-  "pulse-lanes": process.env.EAS_PROJECT_ID_PULSE_LANES,
+  // EAS project IDs — one per game variant (created via `eas init` per variant)
+  // To add a new game: run `APP_VARIANT=<game> eas init --non-interactive --force`
+  // and paste the printed projectId here.
+  snake:          process.env.EAS_PROJECT_ID_SNAKE         || "681d3af1-1308-4f47-82ee-750db188cae2",
+  "circle-shrink":process.env.EAS_PROJECT_ID_CIRCLE_SHRINK || "f454d74b-5475-486a-9e9b-6a556836157f",
+  "laser-dodge":  process.env.EAS_PROJECT_ID_LASER_DODGE   || "64b80ce3-9d0b-4ed6-b5b4-96510b86aee1",
+  "pulse-lanes":  process.env.EAS_PROJECT_ID_PULSE_LANES   || "723112be-9ea5-457d-97ac-68677b796b73",
+  "math-rush":    process.env.EAS_PROJECT_ID_MATH_RUSH     || "56ccd40d-7650-4928-a49a-55e3498881d6",
 };
 const resolvedEasProjectId =
   process.env.EAS_PROJECT_ID ||
