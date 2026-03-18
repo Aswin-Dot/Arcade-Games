@@ -15,20 +15,42 @@ export interface GameConfig {
   };
 }
 
+// Google AdMob test IDs — safe to use in development / simulator
 const TEST_IDS = {
   interstitial: 'ca-app-pub-3940256099942544/1033173712',
   banner: 'ca-app-pub-3940256099942544/6300978111',
   rewarded: 'ca-app-pub-3940256099942544/5224354917',
 };
 
-const makeAdUnits = () => {
-  if (__DEV__) {
-    return TEST_IDS;
-  }
+/**
+ * Build ad-unit IDs for a specific variant.
+ * In dev/test builds the Google test IDs are always used.
+ * In production builds the IDs are read from EAS environment variables
+ * (set per-variant in eas.json → env).
+ *
+ * Env var naming convention (set in EAS or .env.local):
+ *   EXPO_PUBLIC_AD_INTERSTITIAL_<VARIANT>   e.g. EXPO_PUBLIC_AD_INTERSTITIAL_SNAKE
+ *   EXPO_PUBLIC_AD_BANNER_<VARIANT>
+ *   EXPO_PUBLIC_AD_REWARDED_<VARIANT>
+ *   EXPO_PUBLIC_ADMOB_IOS_APP_ID_<VARIANT>
+ *   EXPO_PUBLIC_ADMOB_ANDROID_APP_ID_<VARIANT>
+ */
+const makeAdUnits = (variant: string) => {
+  if (__DEV__) return TEST_IDS;
+  const key = variant.toUpperCase().replace(/-/g, '_');
   return {
-    interstitial: process.env.EXPO_PUBLIC_AD_INTERSTITIAL || TEST_IDS.interstitial,
-    banner: process.env.EXPO_PUBLIC_AD_BANNER || TEST_IDS.banner,
-    rewarded: process.env.EXPO_PUBLIC_AD_REWARDED || TEST_IDS.rewarded,
+    interstitial:
+      process.env[`EXPO_PUBLIC_AD_INTERSTITIAL_${key}`] ||
+      process.env.EXPO_PUBLIC_AD_INTERSTITIAL ||
+      TEST_IDS.interstitial,
+    banner:
+      process.env[`EXPO_PUBLIC_AD_BANNER_${key}`] ||
+      process.env.EXPO_PUBLIC_AD_BANNER ||
+      TEST_IDS.banner,
+    rewarded:
+      process.env[`EXPO_PUBLIC_AD_REWARDED_${key}`] ||
+      process.env.EXPO_PUBLIC_AD_REWARDED ||
+      TEST_IDS.rewarded,
   };
 };
 
@@ -39,7 +61,7 @@ export const GAMES_CONFIG: Record<GameVariant, GameConfig> = {
     primaryColor: '#4CAF50',
     backgroundColor: '#0a0a0f',
     accentColor: '#FFD700',
-    adUnits: makeAdUnits(),
+    adUnits: makeAdUnits('snake'),
   },
   'circle-shrink': {
     id: 'circle-shrink',
@@ -47,7 +69,7 @@ export const GAMES_CONFIG: Record<GameVariant, GameConfig> = {
     primaryColor: '#4ecdc4',
     backgroundColor: '#0f0f23',
     accentColor: '#feca57',
-    adUnits: makeAdUnits(),
+    adUnits: makeAdUnits('circle-shrink'),
   },
   'laser-dodge': {
     id: 'laser-dodge',
@@ -55,7 +77,7 @@ export const GAMES_CONFIG: Record<GameVariant, GameConfig> = {
     primaryColor: '#ff0040',
     backgroundColor: '#0a0014',
     accentColor: '#00f5ff',
-    adUnits: makeAdUnits(),
+    adUnits: makeAdUnits('laser-dodge'),
   },
   'pulse-lanes': {
     id: 'pulse-lanes',
@@ -63,7 +85,7 @@ export const GAMES_CONFIG: Record<GameVariant, GameConfig> = {
     primaryColor: '#00f5ff',
     backgroundColor: '#0a0a1a',
     accentColor: '#a855f7',
-    adUnits: makeAdUnits(),
+    adUnits: makeAdUnits('pulse-lanes'),
   },
   'math-rush': {
     id: 'math-rush',
@@ -71,7 +93,7 @@ export const GAMES_CONFIG: Record<GameVariant, GameConfig> = {
     primaryColor: '#feca57',
     backgroundColor: '#0d0d2b',
     accentColor: '#ff6b6b',
-    adUnits: makeAdUnits(),
+    adUnits: makeAdUnits('math-rush'),
   },
   'gravity-flip': {
     id: 'gravity-flip',
@@ -79,7 +101,7 @@ export const GAMES_CONFIG: Record<GameVariant, GameConfig> = {
     primaryColor: '#39ff14',
     backgroundColor: '#060614',
     accentColor: '#ff00ff',
-    adUnits: makeAdUnits(),
+    adUnits: makeAdUnits('gravity-flip'),
   },
   'color-clash': {
     id: 'color-clash',
@@ -87,7 +109,7 @@ export const GAMES_CONFIG: Record<GameVariant, GameConfig> = {
     primaryColor: '#ff4444',
     backgroundColor: '#0f0a1e',
     accentColor: '#ffdd00',
-    adUnits: makeAdUnits(),
+    adUnits: makeAdUnits('color-clash'),
   },
   'stack-blocks': {
     id: 'stack-blocks',
@@ -95,7 +117,7 @@ export const GAMES_CONFIG: Record<GameVariant, GameConfig> = {
     primaryColor: '#00f5ff',
     backgroundColor: '#0d0d2b',
     accentColor: '#a855f7',
-    adUnits: makeAdUnits(),
+    adUnits: makeAdUnits('stack-blocks'),
   },
   'simon-says': {
     id: 'simon-says',
@@ -103,7 +125,7 @@ export const GAMES_CONFIG: Record<GameVariant, GameConfig> = {
     primaryColor: '#ffd700',
     backgroundColor: '#0a0a1e',
     accentColor: '#44dd66',
-    adUnits: makeAdUnits(),
+    adUnits: makeAdUnits('simon-says'),
   },
   'number-order': {
     id: 'number-order',
@@ -111,7 +133,7 @@ export const GAMES_CONFIG: Record<GameVariant, GameConfig> = {
     primaryColor: '#60a5fa',
     backgroundColor: '#0a1628',
     accentColor: '#f87171',
-    adUnits: makeAdUnits(),
+    adUnits: makeAdUnits('number-order'),
   },
   'tap-rhythm': {
     id: 'tap-rhythm',
@@ -119,7 +141,7 @@ export const GAMES_CONFIG: Record<GameVariant, GameConfig> = {
     primaryColor: '#ff00ff',
     backgroundColor: '#0d001a',
     accentColor: '#ffd700',
-    adUnits: makeAdUnits(),
+    adUnits: makeAdUnits('tap-rhythm'),
   },
   'brick-breaker': {
     id: 'brick-breaker',
@@ -127,7 +149,7 @@ export const GAMES_CONFIG: Record<GameVariant, GameConfig> = {
     primaryColor: '#ff6b35',
     backgroundColor: '#0a0a1a',
     accentColor: '#ffffff',
-    adUnits: makeAdUnits(),
+    adUnits: makeAdUnits('brick-breaker'),
   },
   'slice-frenzy': {
     id: 'slice-frenzy',
@@ -135,7 +157,7 @@ export const GAMES_CONFIG: Record<GameVariant, GameConfig> = {
     primaryColor: '#ff4757',
     backgroundColor: '#0d0d0d',
     accentColor: '#ffa502',
-    adUnits: makeAdUnits(),
+    adUnits: makeAdUnits('slice-frenzy'),
   },
   'tile-shift': {
     id: 'tile-shift',
@@ -143,7 +165,7 @@ export const GAMES_CONFIG: Record<GameVariant, GameConfig> = {
     primaryColor: '#ffd700',
     backgroundColor: '#1a1000',
     accentColor: '#ff6b35',
-    adUnits: makeAdUnits(),
+    adUnits: makeAdUnits('tile-shift'),
   },
   'color-flood': {
     id: 'color-flood',
@@ -151,7 +173,7 @@ export const GAMES_CONFIG: Record<GameVariant, GameConfig> = {
     primaryColor: '#a855f7',
     backgroundColor: '#0d0a1a',
     accentColor: '#2ed573',
-    adUnits: makeAdUnits(),
+    adUnits: makeAdUnits('color-flood'),
   },
 };
 

@@ -3,101 +3,303 @@
     "version": ">= 5.0.0"
   },
   "build": {
-    "snake-preview": {
+
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal",
       "env": {
         "APP_VARIANT": "snake",
         "EXPO_PUBLIC_APP_VARIANT": "snake"
-      },
-      "android": {
-        "buildType": "apk"
-      },
-      "ios": {
-        "distribution": "internal"
       }
+    },
+
+    "snake-preview": {
+      "env": { "APP_VARIANT": "snake", "EXPO_PUBLIC_APP_VARIANT": "snake" },
+      "android": { "buildType": "apk" },
+      "ios": { "distribution": "internal" }
     },
     "snake-production": {
       "env": {
         "APP_VARIANT": "snake",
-        "EXPO_PUBLIC_APP_VARIANT": "snake"
+        "EXPO_PUBLIC_APP_VARIANT": "snake",
+        "ADMOB_IOS_APP_ID": "REPLACE_WITH_ADMOB_IOS_APP_ID_SNAKE",
+        "ADMOB_ANDROID_APP_ID": "REPLACE_WITH_ADMOB_ANDROID_APP_ID_SNAKE",
+        "EXPO_PUBLIC_AD_INTERSTITIAL_SNAKE": "REPLACE_WITH_INTERSTITIAL_UNIT_ID",
+        "EXPO_PUBLIC_AD_BANNER_SNAKE": "REPLACE_WITH_BANNER_UNIT_ID",
+        "EXPO_PUBLIC_AD_REWARDED_SNAKE": "REPLACE_WITH_REWARDED_UNIT_ID"
       },
-      "android": {
-        "buildType": "app-bundle"
-      },
-      "ios": {
-        "distribution": "store"
-      }
+      "android": { "buildType": "app-bundle" },
+      "ios": { "distribution": "store" }
     },
+
     "circle-shrink-preview": {
-      "env": {
-        "APP_VARIANT": "circle-shrink",
-        "EXPO_PUBLIC_APP_VARIANT": "circle-shrink"
-      },
-      "android": {
-        "buildType": "apk"
-      },
-      "ios": {
-        "distribution": "internal"
-      }
+      "env": { "APP_VARIANT": "circle-shrink", "EXPO_PUBLIC_APP_VARIANT": "circle-shrink" },
+      "android": { "buildType": "apk" },
+      "ios": { "distribution": "internal" }
     },
     "circle-shrink-production": {
       "env": {
         "APP_VARIANT": "circle-shrink",
-        "EXPO_PUBLIC_APP_VARIANT": "circle-shrink"
+        "EXPO_PUBLIC_APP_VARIANT": "circle-shrink",
+        "ADMOB_IOS_APP_ID": "REPLACE_WITH_ADMOB_IOS_APP_ID_CIRCLE_SHRINK",
+        "ADMOB_ANDROID_APP_ID": "REPLACE_WITH_ADMOB_ANDROID_APP_ID_CIRCLE_SHRINK",
+        "EXPO_PUBLIC_AD_INTERSTITIAL_CIRCLE_SHRINK": "REPLACE_WITH_INTERSTITIAL_UNIT_ID",
+        "EXPO_PUBLIC_AD_BANNER_CIRCLE_SHRINK": "REPLACE_WITH_BANNER_UNIT_ID",
+        "EXPO_PUBLIC_AD_REWARDED_CIRCLE_SHRINK": "REPLACE_WITH_REWARDED_UNIT_ID"
       },
-      "android": {
-        "buildType": "app-bundle"
-      },
-      "ios": {
-        "distribution": "store"
-      }
+      "android": { "buildType": "app-bundle" },
+      "ios": { "distribution": "store" }
     },
+
     "laser-dodge-preview": {
-      "env": {
-        "APP_VARIANT": "laser-dodge",
-        "EXPO_PUBLIC_APP_VARIANT": "laser-dodge"
-      },
-      "android": {
-        "buildType": "apk"
-      },
-      "ios": {
-        "distribution": "internal"
-      }
+      "env": { "APP_VARIANT": "laser-dodge", "EXPO_PUBLIC_APP_VARIANT": "laser-dodge" },
+      "android": { "buildType": "apk" },
+      "ios": { "distribution": "internal" }
     },
     "laser-dodge-production": {
       "env": {
         "APP_VARIANT": "laser-dodge",
-        "EXPO_PUBLIC_APP_VARIANT": "laser-dodge"
+        "EXPO_PUBLIC_APP_VARIANT": "laser-dodge",
+        "ADMOB_IOS_APP_ID": "REPLACE_WITH_ADMOB_IOS_APP_ID_LASER_DODGE",
+        "ADMOB_ANDROID_APP_ID": "REPLACE_WITH_ADMOB_ANDROID_APP_ID_LASER_DODGE",
+        "EXPO_PUBLIC_AD_INTERSTITIAL_LASER_DODGE": "REPLACE_WITH_INTERSTITIAL_UNIT_ID",
+        "EXPO_PUBLIC_AD_BANNER_LASER_DODGE": "REPLACE_WITH_BANNER_UNIT_ID",
+        "EXPO_PUBLIC_AD_REWARDED_LASER_DODGE": "REPLACE_WITH_REWARDED_UNIT_ID"
       },
-      "android": {
-        "buildType": "app-bundle"
-      },
-      "ios": {
-        "distribution": "store"
-      }
+      "android": { "buildType": "app-bundle" },
+      "ios": { "distribution": "store" }
     },
+
     "pulse-lanes-preview": {
-      "env": {
-        "APP_VARIANT": "pulse-lanes",
-        "EXPO_PUBLIC_APP_VARIANT": "pulse-lanes"
-      },
-      "android": {
-        "buildType": "apk"
-      },
-      "ios": {
-        "distribution": "internal"
-      }
+      "env": { "APP_VARIANT": "pulse-lanes", "EXPO_PUBLIC_APP_VARIANT": "pulse-lanes" },
+      "android": { "buildType": "apk" },
+      "ios": { "distribution": "internal" }
     },
     "pulse-lanes-production": {
       "env": {
         "APP_VARIANT": "pulse-lanes",
-        "EXPO_PUBLIC_APP_VARIANT": "pulse-lanes"
+        "EXPO_PUBLIC_APP_VARIANT": "pulse-lanes",
+        "ADMOB_IOS_APP_ID": "REPLACE_WITH_ADMOB_IOS_APP_ID_PULSE_LANES",
+        "ADMOB_ANDROID_APP_ID": "REPLACE_WITH_ADMOB_ANDROID_APP_ID_PULSE_LANES",
+        "EXPO_PUBLIC_AD_INTERSTITIAL_PULSE_LANES": "REPLACE_WITH_INTERSTITIAL_UNIT_ID",
+        "EXPO_PUBLIC_AD_BANNER_PULSE_LANES": "REPLACE_WITH_BANNER_UNIT_ID",
+        "EXPO_PUBLIC_AD_REWARDED_PULSE_LANES": "REPLACE_WITH_REWARDED_UNIT_ID"
       },
-      "android": {
-        "buildType": "app-bundle"
+      "android": { "buildType": "app-bundle" },
+      "ios": { "distribution": "store" }
+    },
+
+    "math-rush-preview": {
+      "env": { "APP_VARIANT": "math-rush", "EXPO_PUBLIC_APP_VARIANT": "math-rush" },
+      "android": { "buildType": "apk" },
+      "ios": { "distribution": "internal" }
+    },
+    "math-rush-production": {
+      "env": {
+        "APP_VARIANT": "math-rush",
+        "EXPO_PUBLIC_APP_VARIANT": "math-rush",
+        "ADMOB_IOS_APP_ID": "REPLACE_WITH_ADMOB_IOS_APP_ID_MATH_RUSH",
+        "ADMOB_ANDROID_APP_ID": "REPLACE_WITH_ADMOB_ANDROID_APP_ID_MATH_RUSH",
+        "EXPO_PUBLIC_AD_INTERSTITIAL_MATH_RUSH": "REPLACE_WITH_INTERSTITIAL_UNIT_ID",
+        "EXPO_PUBLIC_AD_BANNER_MATH_RUSH": "REPLACE_WITH_BANNER_UNIT_ID",
+        "EXPO_PUBLIC_AD_REWARDED_MATH_RUSH": "REPLACE_WITH_REWARDED_UNIT_ID"
       },
-      "ios": {
-        "distribution": "store"
-      }
+      "android": { "buildType": "app-bundle" },
+      "ios": { "distribution": "store" }
+    },
+
+    "gravity-flip-preview": {
+      "env": { "APP_VARIANT": "gravity-flip", "EXPO_PUBLIC_APP_VARIANT": "gravity-flip" },
+      "android": { "buildType": "apk" },
+      "ios": { "distribution": "internal" }
+    },
+    "gravity-flip-production": {
+      "env": {
+        "APP_VARIANT": "gravity-flip",
+        "EXPO_PUBLIC_APP_VARIANT": "gravity-flip",
+        "ADMOB_IOS_APP_ID": "REPLACE_WITH_ADMOB_IOS_APP_ID_GRAVITY_FLIP",
+        "ADMOB_ANDROID_APP_ID": "REPLACE_WITH_ADMOB_ANDROID_APP_ID_GRAVITY_FLIP",
+        "EXPO_PUBLIC_AD_INTERSTITIAL_GRAVITY_FLIP": "REPLACE_WITH_INTERSTITIAL_UNIT_ID",
+        "EXPO_PUBLIC_AD_BANNER_GRAVITY_FLIP": "REPLACE_WITH_BANNER_UNIT_ID",
+        "EXPO_PUBLIC_AD_REWARDED_GRAVITY_FLIP": "REPLACE_WITH_REWARDED_UNIT_ID"
+      },
+      "android": { "buildType": "app-bundle" },
+      "ios": { "distribution": "store" }
+    },
+
+    "color-clash-preview": {
+      "env": { "APP_VARIANT": "color-clash", "EXPO_PUBLIC_APP_VARIANT": "color-clash" },
+      "android": { "buildType": "apk" },
+      "ios": { "distribution": "internal" }
+    },
+    "color-clash-production": {
+      "env": {
+        "APP_VARIANT": "color-clash",
+        "EXPO_PUBLIC_APP_VARIANT": "color-clash",
+        "ADMOB_IOS_APP_ID": "REPLACE_WITH_ADMOB_IOS_APP_ID_COLOR_CLASH",
+        "ADMOB_ANDROID_APP_ID": "REPLACE_WITH_ADMOB_ANDROID_APP_ID_COLOR_CLASH",
+        "EXPO_PUBLIC_AD_INTERSTITIAL_COLOR_CLASH": "REPLACE_WITH_INTERSTITIAL_UNIT_ID",
+        "EXPO_PUBLIC_AD_BANNER_COLOR_CLASH": "REPLACE_WITH_BANNER_UNIT_ID",
+        "EXPO_PUBLIC_AD_REWARDED_COLOR_CLASH": "REPLACE_WITH_REWARDED_UNIT_ID"
+      },
+      "android": { "buildType": "app-bundle" },
+      "ios": { "distribution": "store" }
+    },
+
+    "stack-blocks-preview": {
+      "env": { "APP_VARIANT": "stack-blocks", "EXPO_PUBLIC_APP_VARIANT": "stack-blocks" },
+      "android": { "buildType": "apk" },
+      "ios": { "distribution": "internal" }
+    },
+    "stack-blocks-production": {
+      "env": {
+        "APP_VARIANT": "stack-blocks",
+        "EXPO_PUBLIC_APP_VARIANT": "stack-blocks",
+        "ADMOB_IOS_APP_ID": "REPLACE_WITH_ADMOB_IOS_APP_ID_STACK_BLOCKS",
+        "ADMOB_ANDROID_APP_ID": "REPLACE_WITH_ADMOB_ANDROID_APP_ID_STACK_BLOCKS",
+        "EXPO_PUBLIC_AD_INTERSTITIAL_STACK_BLOCKS": "REPLACE_WITH_INTERSTITIAL_UNIT_ID",
+        "EXPO_PUBLIC_AD_BANNER_STACK_BLOCKS": "REPLACE_WITH_BANNER_UNIT_ID",
+        "EXPO_PUBLIC_AD_REWARDED_STACK_BLOCKS": "REPLACE_WITH_REWARDED_UNIT_ID"
+      },
+      "android": { "buildType": "app-bundle" },
+      "ios": { "distribution": "store" }
+    },
+
+    "simon-says-preview": {
+      "env": { "APP_VARIANT": "simon-says", "EXPO_PUBLIC_APP_VARIANT": "simon-says" },
+      "android": { "buildType": "apk" },
+      "ios": { "distribution": "internal" }
+    },
+    "simon-says-production": {
+      "env": {
+        "APP_VARIANT": "simon-says",
+        "EXPO_PUBLIC_APP_VARIANT": "simon-says",
+        "ADMOB_IOS_APP_ID": "REPLACE_WITH_ADMOB_IOS_APP_ID_SIMON_SAYS",
+        "ADMOB_ANDROID_APP_ID": "REPLACE_WITH_ADMOB_ANDROID_APP_ID_SIMON_SAYS",
+        "EXPO_PUBLIC_AD_INTERSTITIAL_SIMON_SAYS": "REPLACE_WITH_INTERSTITIAL_UNIT_ID",
+        "EXPO_PUBLIC_AD_BANNER_SIMON_SAYS": "REPLACE_WITH_BANNER_UNIT_ID",
+        "EXPO_PUBLIC_AD_REWARDED_SIMON_SAYS": "REPLACE_WITH_REWARDED_UNIT_ID"
+      },
+      "android": { "buildType": "app-bundle" },
+      "ios": { "distribution": "store" }
+    },
+
+    "number-order-preview": {
+      "env": { "APP_VARIANT": "number-order", "EXPO_PUBLIC_APP_VARIANT": "number-order" },
+      "android": { "buildType": "apk" },
+      "ios": { "distribution": "internal" }
+    },
+    "number-order-production": {
+      "env": {
+        "APP_VARIANT": "number-order",
+        "EXPO_PUBLIC_APP_VARIANT": "number-order",
+        "ADMOB_IOS_APP_ID": "REPLACE_WITH_ADMOB_IOS_APP_ID_NUMBER_ORDER",
+        "ADMOB_ANDROID_APP_ID": "REPLACE_WITH_ADMOB_ANDROID_APP_ID_NUMBER_ORDER",
+        "EXPO_PUBLIC_AD_INTERSTITIAL_NUMBER_ORDER": "REPLACE_WITH_INTERSTITIAL_UNIT_ID",
+        "EXPO_PUBLIC_AD_BANNER_NUMBER_ORDER": "REPLACE_WITH_BANNER_UNIT_ID",
+        "EXPO_PUBLIC_AD_REWARDED_NUMBER_ORDER": "REPLACE_WITH_REWARDED_UNIT_ID"
+      },
+      "android": { "buildType": "app-bundle" },
+      "ios": { "distribution": "store" }
+    },
+
+    "tap-rhythm-preview": {
+      "env": { "APP_VARIANT": "tap-rhythm", "EXPO_PUBLIC_APP_VARIANT": "tap-rhythm" },
+      "android": { "buildType": "apk" },
+      "ios": { "distribution": "internal" }
+    },
+    "tap-rhythm-production": {
+      "env": {
+        "APP_VARIANT": "tap-rhythm",
+        "EXPO_PUBLIC_APP_VARIANT": "tap-rhythm",
+        "ADMOB_IOS_APP_ID": "REPLACE_WITH_ADMOB_IOS_APP_ID_TAP_RHYTHM",
+        "ADMOB_ANDROID_APP_ID": "REPLACE_WITH_ADMOB_ANDROID_APP_ID_TAP_RHYTHM",
+        "EXPO_PUBLIC_AD_INTERSTITIAL_TAP_RHYTHM": "REPLACE_WITH_INTERSTITIAL_UNIT_ID",
+        "EXPO_PUBLIC_AD_BANNER_TAP_RHYTHM": "REPLACE_WITH_BANNER_UNIT_ID",
+        "EXPO_PUBLIC_AD_REWARDED_TAP_RHYTHM": "REPLACE_WITH_REWARDED_UNIT_ID"
+      },
+      "android": { "buildType": "app-bundle" },
+      "ios": { "distribution": "store" }
+    },
+
+    "brick-breaker-preview": {
+      "env": { "APP_VARIANT": "brick-breaker", "EXPO_PUBLIC_APP_VARIANT": "brick-breaker" },
+      "android": { "buildType": "apk" },
+      "ios": { "distribution": "internal" }
+    },
+    "brick-breaker-production": {
+      "env": {
+        "APP_VARIANT": "brick-breaker",
+        "EXPO_PUBLIC_APP_VARIANT": "brick-breaker",
+        "ADMOB_IOS_APP_ID": "REPLACE_WITH_ADMOB_IOS_APP_ID_BRICK_BREAKER",
+        "ADMOB_ANDROID_APP_ID": "REPLACE_WITH_ADMOB_ANDROID_APP_ID_BRICK_BREAKER",
+        "EXPO_PUBLIC_AD_INTERSTITIAL_BRICK_BREAKER": "REPLACE_WITH_INTERSTITIAL_UNIT_ID",
+        "EXPO_PUBLIC_AD_BANNER_BRICK_BREAKER": "REPLACE_WITH_BANNER_UNIT_ID",
+        "EXPO_PUBLIC_AD_REWARDED_BRICK_BREAKER": "REPLACE_WITH_REWARDED_UNIT_ID"
+      },
+      "android": { "buildType": "app-bundle" },
+      "ios": { "distribution": "store" }
+    },
+
+    "slice-frenzy-preview": {
+      "env": { "APP_VARIANT": "slice-frenzy", "EXPO_PUBLIC_APP_VARIANT": "slice-frenzy" },
+      "android": { "buildType": "apk" },
+      "ios": { "distribution": "internal" }
+    },
+    "slice-frenzy-production": {
+      "env": {
+        "APP_VARIANT": "slice-frenzy",
+        "EXPO_PUBLIC_APP_VARIANT": "slice-frenzy",
+        "ADMOB_IOS_APP_ID": "REPLACE_WITH_ADMOB_IOS_APP_ID_SLICE_FRENZY",
+        "ADMOB_ANDROID_APP_ID": "REPLACE_WITH_ADMOB_ANDROID_APP_ID_SLICE_FRENZY",
+        "EXPO_PUBLIC_AD_INTERSTITIAL_SLICE_FRENZY": "REPLACE_WITH_INTERSTITIAL_UNIT_ID",
+        "EXPO_PUBLIC_AD_BANNER_SLICE_FRENZY": "REPLACE_WITH_BANNER_UNIT_ID",
+        "EXPO_PUBLIC_AD_REWARDED_SLICE_FRENZY": "REPLACE_WITH_REWARDED_UNIT_ID"
+      },
+      "android": { "buildType": "app-bundle" },
+      "ios": { "distribution": "store" }
+    },
+
+    "tile-shift-preview": {
+      "env": { "APP_VARIANT": "tile-shift", "EXPO_PUBLIC_APP_VARIANT": "tile-shift" },
+      "android": { "buildType": "apk" },
+      "ios": { "distribution": "internal" }
+    },
+    "tile-shift-production": {
+      "env": {
+        "APP_VARIANT": "tile-shift",
+        "EXPO_PUBLIC_APP_VARIANT": "tile-shift",
+        "ADMOB_IOS_APP_ID": "REPLACE_WITH_ADMOB_IOS_APP_ID_TILE_SHIFT",
+        "ADMOB_ANDROID_APP_ID": "REPLACE_WITH_ADMOB_ANDROID_APP_ID_TILE_SHIFT",
+        "EXPO_PUBLIC_AD_INTERSTITIAL_TILE_SHIFT": "REPLACE_WITH_INTERSTITIAL_UNIT_ID",
+        "EXPO_PUBLIC_AD_BANNER_TILE_SHIFT": "REPLACE_WITH_BANNER_UNIT_ID",
+        "EXPO_PUBLIC_AD_REWARDED_TILE_SHIFT": "REPLACE_WITH_REWARDED_UNIT_ID"
+      },
+      "android": { "buildType": "app-bundle" },
+      "ios": { "distribution": "store" }
+    },
+
+    "color-flood-preview": {
+      "env": { "APP_VARIANT": "color-flood", "EXPO_PUBLIC_APP_VARIANT": "color-flood" },
+      "android": { "buildType": "apk" },
+      "ios": { "distribution": "internal" }
+    },
+    "color-flood-production": {
+      "env": {
+        "APP_VARIANT": "color-flood",
+        "EXPO_PUBLIC_APP_VARIANT": "color-flood",
+        "ADMOB_IOS_APP_ID": "REPLACE_WITH_ADMOB_IOS_APP_ID_COLOR_FLOOD",
+        "ADMOB_ANDROID_APP_ID": "REPLACE_WITH_ADMOB_ANDROID_APP_ID_COLOR_FLOOD",
+        "EXPO_PUBLIC_AD_INTERSTITIAL_COLOR_FLOOD": "REPLACE_WITH_INTERSTITIAL_UNIT_ID",
+        "EXPO_PUBLIC_AD_BANNER_COLOR_FLOOD": "REPLACE_WITH_BANNER_UNIT_ID",
+        "EXPO_PUBLIC_AD_REWARDED_COLOR_FLOOD": "REPLACE_WITH_REWARDED_UNIT_ID"
+      },
+      "android": { "buildType": "app-bundle" },
+      "ios": { "distribution": "store" }
     }
+
+  },
+  "submit": {
+    "production": {}
   }
 }
