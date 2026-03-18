@@ -158,12 +158,12 @@ Use the game's document file (`documents/<game>.md`) to copy-paste:
 
 1. **App Information tab**:
    - Subtitle, category, content rating
-   - Privacy Policy URL: `https://aswin-dot.github.io/RNGames/privacy.html`
+   - Privacy Policy URL: `https://theze-games.web.app/privacy.html`
 
 2. **Version tab**:
    - Screenshots (see Screenshot Content Guide in the doc)
    - Description, Keywords, Promotional Text, What's New
-   - Support URL: `https://aswin-dot.github.io/RNGames/support.html`
+   - Support URL: `https://theze-games.web.app/support.html`
 
 3. **App Privacy tab**:
    - Follow the Privacy Nutrition Label section in the doc
@@ -236,10 +236,10 @@ done
 
 | Purpose | URL |
 |---------|-----|
-| Privacy Policy | `https://aswin-dot.github.io/RNGames/privacy.html` |
-| Terms of Service | `https://aswin-dot.github.io/RNGames/terms.html` |
-| Support | `https://aswin-dot.github.io/RNGames/support.html` |
-| Marketing | `https://aswin-dot.github.io/RNGames/` |
+| Privacy Policy | `https://theze-games.web.app/privacy.html` |
+| Terms of Service | `https://theze-games.web.app/terms.html` |
+| Support | `https://theze-games.web.app/support.html` |
+| Marketing | `https://theze-games.web.app/` |
 
 ---
 
@@ -259,7 +259,7 @@ Apple requires iOS 26 SDK (Xcode 26) for submissions after April 28, 2026. Add `
 
 ### App rejected for missing privacy policy
 - Ensure GitHub Pages is enabled: repo Settings → Pages → Source: master `/docs`
-- Verify URL loads: `https://aswin-dot.github.io/RNGames/privacy.html`
+- Verify URL loads: `https://theze-games.web.app/privacy.html`
 
 ---
 

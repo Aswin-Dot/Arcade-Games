@@ -57,9 +57,9 @@ snake,arcade,classic,neon,retro,puzzle,casual,swipe,highscore,free,simple,grid,g
 
 | Field | Value |
 |-------|-------|
-| **Support URL** | https://aswin-dot.github.io/RNGames/support.html |
-| **Marketing URL** | https://aswin-dot.github.io/RNGames/ |
-| **Privacy Policy URL** | https://aswin-dot.github.io/RNGames/privacy.html |
+| **Support URL** | https://theze-games.web.app/support.html |
+| **Marketing URL** | https://theze-games.web.app/ |
+| **Privacy Policy URL** | https://theze-games.web.app/privacy.html |
 
 ## App Review Information
 
