@@ -49,8 +49,8 @@ Legend: 🔵 Not Started · 🟡 In Progress · 🟢 Done · 🔴 Rejected / Iss
 | Live on store | ☐ | ☐ |
 
 - **Variant key:** `snake`
-- **Bundle ID:** `com.rngames.snake`
-- **Android Package:** `com.rngames.snake`
+- **Bundle ID:** `com.theze.snake`
+- **Android Package:** `com.theze.snake`
 - **Notes:**
 
 ---
@@ -67,8 +67,8 @@ Legend: 🔵 Not Started · 🟡 In Progress · 🟢 Done · 🔴 Rejected / Iss
 | Live on store | ☐ | ☐ |
 
 - **Variant key:** `circle-shrink`
-- **Bundle ID:** `com.rngames.circleshrink`
-- **Android Package:** `com.rngames.circleshrink`
+- **Bundle ID:** `com.theze.circleshrink`
+- **Android Package:** `com.theze.circleshrink`
 - **Notes:**
 
 ---
@@ -85,8 +85,8 @@ Legend: 🔵 Not Started · 🟡 In Progress · 🟢 Done · 🔴 Rejected / Iss
 | Live on store | ☐ | ☐ |
 
 - **Variant key:** `laser-dodge`
-- **Bundle ID:** `com.rngames.laserdodge`
-- **Android Package:** `com.rngames.laserdodge`
+- **Bundle ID:** `com.theze.laserdodge`
+- **Android Package:** `com.theze.laserdodge`
 - **Notes:**
 
 ---
@@ -103,8 +103,8 @@ Legend: 🔵 Not Started · 🟡 In Progress · 🟢 Done · 🔴 Rejected / Iss
 | Live on store | ☐ | ☐ |
 
 - **Variant key:** `pulse-lanes`
-- **Bundle ID:** `com.rngames.pulselanes`
-- **Android Package:** `com.rngames.pulselanes`
+- **Bundle ID:** `com.theze.pulselanes`
+- **Android Package:** `com.theze.pulselanes`
 - **Notes:**
 
 ---
@@ -121,8 +121,8 @@ Legend: 🔵 Not Started · 🟡 In Progress · 🟢 Done · 🔴 Rejected / Iss
 | Live on store | ☐ | ☐ |
 
 - **Variant key:** `math-rush`
-- **Bundle ID:** `com.rngames.mathrush`
-- **Android Package:** `com.rngames.mathrush`
+- **Bundle ID:** `com.theze.mathrush`
+- **Android Package:** `com.theze.mathrush`
 - **Notes:**
 
 ---
@@ -139,8 +139,8 @@ Legend: 🔵 Not Started · 🟡 In Progress · 🟢 Done · 🔴 Rejected / Iss
 | Live on store | ☐ | ☐ |
 
 - **Variant key:** `gravity-flip`
-- **Bundle ID:** `com.rngames.gravityflip`
-- **Android Package:** `com.rngames.gravityflip`
+- **Bundle ID:** `com.theze.gravityflip`
+- **Android Package:** `com.theze.gravityflip`
 - **Notes:**
 
 ---
@@ -157,8 +157,8 @@ Legend: 🔵 Not Started · 🟡 In Progress · 🟢 Done · 🔴 Rejected / Iss
 | Live on store | ☐ | ☐ |
 
 - **Variant key:** `color-clash`
-- **Bundle ID:** `com.rngames.colorclash`
-- **Android Package:** `com.rngames.colorclash`
+- **Bundle ID:** `com.theze.colorclash`
+- **Android Package:** `com.theze.colorclash`
 - **Notes:**
 
 ---
@@ -175,8 +175,8 @@ Legend: 🔵 Not Started · 🟡 In Progress · 🟢 Done · 🔴 Rejected / Iss
 | Live on store | ☐ | ☐ |
 
 - **Variant key:** `stack-blocks`
-- **Bundle ID:** `com.rngames.stackblocks`
-- **Android Package:** `com.rngames.stackblocks`
+- **Bundle ID:** `com.theze.stackblocks`
+- **Android Package:** `com.theze.stackblocks`
 - **Notes:**
 
 ---
@@ -193,8 +193,8 @@ Legend: 🔵 Not Started · 🟡 In Progress · 🟢 Done · 🔴 Rejected / Iss
 | Live on store | ☐ | ☐ |
 
 - **Variant key:** `simon-says`
-- **Bundle ID:** `com.rngames.simonsays`
-- **Android Package:** `com.rngames.simonsays`
+- **Bundle ID:** `com.theze.simonsays`
+- **Android Package:** `com.theze.simonsays`
 - **Notes:**
 
 ---
@@ -211,8 +211,8 @@ Legend: 🔵 Not Started · 🟡 In Progress · 🟢 Done · 🔴 Rejected / Iss
 | Live on store | ☐ | ☐ |
 
 - **Variant key:** `number-order`
-- **Bundle ID:** `com.rngames.numberorder`
-- **Android Package:** `com.rngames.numberorder`
+- **Bundle ID:** `com.theze.numberorder`
+- **Android Package:** `com.theze.numberorder`
 - **Notes:**
 
 ---
@@ -229,8 +229,8 @@ Legend: 🔵 Not Started · 🟡 In Progress · 🟢 Done · 🔴 Rejected / Iss
 | Live on store | ☐ | ☐ |
 
 - **Variant key:** `tap-rhythm`
-- **Bundle ID:** `com.rngames.taprhythm`
-- **Android Package:** `com.rngames.taprhythm`
+- **Bundle ID:** `com.theze.taprhythm`
+- **Android Package:** `com.theze.taprhythm`
 - **Notes:**
 
 ---
@@ -247,8 +247,8 @@ Legend: 🔵 Not Started · 🟡 In Progress · 🟢 Done · 🔴 Rejected / Iss
 | Live on store | ☐ | ☐ |
 
 - **Variant key:** `brick-breaker`
-- **Bundle ID:** `com.rngames.brickbreaker`
-- **Android Package:** `com.rngames.brickbreaker`
+- **Bundle ID:** `com.theze.brickbreaker`
+- **Android Package:** `com.theze.brickbreaker`
 - **Notes:**
 
 ---
@@ -265,8 +265,8 @@ Legend: 🔵 Not Started · 🟡 In Progress · 🟢 Done · 🔴 Rejected / Iss
 | Live on store | ☐ | ☐ |
 
 - **Variant key:** `slice-frenzy`
-- **Bundle ID:** `com.rngames.slicefrenzy`
-- **Android Package:** `com.rngames.slicefrenzy`
+- **Bundle ID:** `com.theze.slicefrenzy`
+- **Android Package:** `com.theze.slicefrenzy`
 - **Notes:**
 
 ---
@@ -283,8 +283,8 @@ Legend: 🔵 Not Started · 🟡 In Progress · 🟢 Done · 🔴 Rejected / Iss
 | Live on store | ☐ | ☐ |
 
 - **Variant key:** `tile-shift`
-- **Bundle ID:** `com.rngames.tileshift`
-- **Android Package:** `com.rngames.tileshift`
+- **Bundle ID:** `com.theze.tileshift`
+- **Android Package:** `com.theze.tileshift`
 - **Notes:**
 
 ---
@@ -301,8 +301,8 @@ Legend: 🔵 Not Started · 🟡 In Progress · 🟢 Done · 🔴 Rejected / Iss
 | Live on store | ☐ | ☐ |
 
 - **Variant key:** `color-flood`
-- **Bundle ID:** `com.rngames.colorflood`
-- **Android Package:** `com.rngames.colorflood`
+- **Bundle ID:** `com.theze.colorflood`
+- **Android Package:** `com.theze.colorflood`
 - **Notes:**
 
 ---
