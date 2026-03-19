@@ -160,18 +160,19 @@ const resolvedEasProjectId =
   (variant ? VARIANT_EAS_PROJECT_IDS[variant] : undefined);
 const plugins = [
   ...(Array.isArray(baseConfig.plugins) ? baseConfig.plugins : []),
-  // Raise iOS minimum deployment target — Expo SDK 54 requires ≥ 15.1;
-  // TopOn v6.4.88 adapter pods (AppLovin, Pangle, UnityAds, etc.) require 16.0
+  // Raise iOS minimum deployment target to 17.0:
+  // - Expo SDK 54 requires ≥ 15.1
+  // - react-native-topon@0.1.7 pulls TPNYandexSDKAdapter 6.4.93 which requires ≥ 17.0
+  // Note: react-native-topon's own Podspec manages all TopOn pod versions (6.4.93);
+  // do NOT add a separate withTopOn plugin as it causes version conflicts.
   [
     "expo-build-properties",
     {
       ios: {
-        deploymentTarget: "16.0",
+        deploymentTarget: "17.0",
       },
     },
   ],
-  // TopOn ADX v6.4.88 — injects CocoaPods + network adapters into Podfile during EAS Build
-  "./plugins/withTopOn",
 ];
 
 module.exports = {
