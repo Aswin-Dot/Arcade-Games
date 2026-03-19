@@ -160,7 +160,17 @@ const resolvedEasProjectId =
   (variant ? VARIANT_EAS_PROJECT_IDS[variant] : undefined);
 const plugins = [
   ...(Array.isArray(baseConfig.plugins) ? baseConfig.plugins : []),
-  // TopOn ADX v6.4.87 — injects CocoaPods + network adapters into Podfile during EAS Build
+  // Raise iOS minimum deployment target to 14.0 — required by TopOn v6.4.88
+  // adapter pods (AppLovin, Pangle, UnityAds, etc.)
+  [
+    "expo-build-properties",
+    {
+      ios: {
+        deploymentTarget: "14.0",
+      },
+    },
+  ],
+  // TopOn ADX v6.4.88 — injects CocoaPods + network adapters into Podfile during EAS Build
   "./plugins/withTopOn",
 ];
 
