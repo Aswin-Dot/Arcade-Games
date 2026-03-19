@@ -197,6 +197,9 @@ module.exports = {
         : baseConfig.ios?.bundleIdentifier,
       infoPlist: {
         ...(baseConfig.ios?.infoPlist || {}),
+        // Declare app uses no exempt encryption (simple games, no custom crypto)
+        // Avoids having to manually answer French export compliance in App Store Connect
+        ITSAppUsesNonExemptEncryption: false,
         // Required for iOS 14+ — shown to user before any ad tracking begins
         NSUserTrackingUsageDescription:
           "We use this to show you relevant ads and keep the game free to play.",
