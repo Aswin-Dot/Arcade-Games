@@ -41,3 +41,9 @@ app-example
 # generated native folders
 /ios
 /android
+
+# Firebase
+.firebase/
+
+# Local env (EAS project IDs are hardcoded in app.config.js — .env not needed)
+.env

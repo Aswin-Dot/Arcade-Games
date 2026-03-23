@@ -15,6 +15,8 @@ import Animated, {
 } from 'react-native-reanimated';
 import * as Haptics from 'expo-haptics';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { showInterstitial, showRewarded } from '@/shared/ads/AdManager';
+import GameOverScreen from '@/shared/components/GameOverScreen';
 
 const STORAGE_KEY = '@simon-says/highscore';
 const FLASH_ON = 420;
@@ -115,6 +117,7 @@ export default function SimonSays() {
     phaseRef.current = 'over';
     setPhase('over');
     Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
+    showInterstitial();
     const finalScore = sequenceRef.current.length - 1;
     const stored = await AsyncStorage.getItem(STORAGE_KEY);
     const prev = stored ? parseInt(stored, 10) : 0;
@@ -156,7 +159,7 @@ export default function SimonSays() {
     [flashPanel, triggerGameOver, showSequence],
   );
 
-  const startGame = useCallback(() => {
+  const launchGame = useCallback(() => {
     clearTimeouts();
     glows.forEach((g) => { g.value = 0; });
     const first = Math.floor(Math.random() * 4);
@@ -170,10 +173,11 @@ export default function SimonSays() {
   }, [clearTimeouts, glows, showSequence]);
 
   const handleScreenTap = useCallback(() => {
-    if (phase === 'idle' || phase === 'over') {
-      startGame();
+    if (phase === 'idle') {
+      showRewarded();
+      launchGame();
     }
-  }, [phase, startGame]);
+  }, [phase, launchGame]);
 
   const phaseLabel =
     phase === 'showing' ? 'Watch...' : phase === 'input' ? 'Your turn!' : '';
@@ -220,14 +224,7 @@ export default function SimonSays() {
       )}
 
       {phase === 'over' && (
-        <TouchableWithoutFeedback onPress={handleScreenTap}>
-          <View style={styles.overlay}>
-            <Text style={styles.gameOverText}>WRONG!</Text>
-            <Text style={styles.finalScoreText}>Round: {score}</Text>
-            <Text style={styles.bestDisplay}>Best: {highScore}</Text>
-            <Text style={styles.subtitleText}>Tap to Restart</Text>
-          </View>
-        </TouchableWithoutFeedback>
+        <GameOverScreen score={score} highScore={highScore} accentColor="#ffd700" scoreLabel="Round" onReplay={launchGame} />
       )}
     </View>
   );
@@ -314,22 +311,5 @@ const styles = StyleSheet.create({
     marginTop: 10,
     textAlign: 'center',
     paddingHorizontal: 40,
-  },
-  gameOverText: {
-    color: '#ff4444',
-    fontSize: 40,
-    fontWeight: 'bold',
-    letterSpacing: 3,
-  },
-  finalScoreText: {
-    color: '#ffd700',
-    fontSize: 28,
-    fontWeight: 'bold',
-    marginTop: 16,
-  },
-  bestDisplay: {
-    color: '#ffffff80',
-    fontSize: 20,
-    marginTop: 8,
   },
 });

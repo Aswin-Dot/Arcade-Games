@@ -1,0 +1,30 @@
+diff --git a/node_modules/react-native-topon/Topon.podspec b/node_modules/react-native-topon/Topon.podspec
+index 7817465..13407ec 100644
+--- a/node_modules/react-native-topon/Topon.podspec
++++ b/node_modules/react-native-topon/Topon.podspec
+@@ -17,12 +17,6 @@ Pod::Spec.new do |s|
+   s.private_header_files = "ios/**/*.h"
+ 
+   s.dependency "TPNiOS", "6.4.93"
+-  s.dependency "TPNUnityAdsSDKAdapter", "6.4.93"
+-  s.dependency "TPNFacebookSDKAdapter", "6.4.93.1"
+-  s.dependency "TPNAdmobSDKAdapter", "6.4.93.1"
+-  s.dependency "TPNApplovinSDKAdapter", "6.4.93.1"
+-  s.dependency "TPNMintegralSDKAdapter", "6.4.93"
+-  s.dependency "TPNYandexSDKAdapter", "6.4.93"
+ 
+ 
+   install_modules_dependencies(s)
+diff --git a/node_modules/react-native-topon/ios/Topon.mm b/node_modules/react-native-topon/ios/Topon.mm
+index df3c91d..56fccf7 100644
+--- a/node_modules/react-native-topon/ios/Topon.mm
++++ b/node_modules/react-native-topon/ios/Topon.mm
+@@ -416,7 +416,7 @@ static NSDictionary *ToponNativeMaterialToDictionary(ATNativeAdOffer *offer) {
+ 
+ - (void)setGDPRLevel:(double)level {
+   NSInteger gdprLevel = (NSInteger)level;
+-  [[ATAPI sharedInstance] setDataConsentSet:2 - gdprLevel consentString:nil];
++  [[ATAPI sharedInstance] setDataConsentSet:(ATDataConsentSet)(2 - gdprLevel) consentString:nil];
+ }
+ 
+ - (void)getGDPRLevel:(RCTPromiseResolveBlock)resolve reject:(RCTPromiseRejectBlock)reject {

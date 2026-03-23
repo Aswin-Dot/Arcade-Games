@@ -2,6 +2,8 @@ import React, { useState, useCallback, useEffect } from 'react';
 import { View, Text, StyleSheet, Dimensions, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
 import * as Haptics from 'expo-haptics';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { showInterstitial, showRewarded } from '@/shared/ads/AdManager';
+import GameOverScreen from '@/shared/components/GameOverScreen';
 
 const STORAGE_KEY = '@color-flood/highscore';
 const { width: SW } = Dimensions.get('window');
@@ -113,6 +115,7 @@ export default function ColorFlood() {
 
   useEffect(() => {
     AsyncStorage.getItem(STORAGE_KEY).then((v) => { if (v) setHighScore(parseInt(v, 10)); });
+    showRewarded();
   }, []);
 
   useEffect(() => {
@@ -139,6 +142,7 @@ export default function ColorFlood() {
         const finalScore = (MAX_MOVES - newMoves + 1) * 100;
         setScore(finalScore);
         setPhase('won');
+        showInterstitial();
         Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
         const stored = await AsyncStorage.getItem(STORAGE_KEY);
         const prev = stored ? parseInt(stored, 10) : 0;
@@ -151,6 +155,7 @@ export default function ColorFlood() {
         const finalScore = Math.floor((newOwned / total) * 500);
         setScore(finalScore);
         setPhase('over');
+        showInterstitial();
         Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
         const stored = await AsyncStorage.getItem(STORAGE_KEY);
         const prev = stored ? parseInt(stored, 10) : 0;
@@ -163,7 +168,7 @@ export default function ColorFlood() {
     [phase, grid, moves],
   );
 
-  const restart = useCallback(() => {
+  const launchGame = useCallback(() => {
     const fresh = makeGrid();
     setGrid(fresh);
     setMoves(0);
@@ -220,27 +225,11 @@ export default function ColorFlood() {
       <Text style={styles.hint}>Flood-fill the grid with one color</Text>
 
       {phase === 'won' && (
-        <TouchableWithoutFeedback onPress={restart}>
-          <View style={styles.overlay}>
-            <Text style={styles.wonText}>YOU WIN! 🎉</Text>
-            <Text style={styles.finalScoreText}>Score: {score}</Text>
-            <Text style={styles.movesUsedText}>Cleared in {moves} moves</Text>
-            <Text style={styles.bestDisplay}>Best: {highScore}</Text>
-            <Text style={styles.restartText}>Tap to Play Again</Text>
-          </View>
-        </TouchableWithoutFeedback>
+        <GameOverScreen score={score} highScore={highScore} accentColor="#a855f7" onReplay={launchGame} />
       )}
 
       {phase === 'over' && (
-        <TouchableWithoutFeedback onPress={restart}>
-          <View style={styles.overlay}>
-            <Text style={styles.gameOverText}>OUT OF MOVES</Text>
-            <Text style={styles.capturedText}>{progressPct}% captured</Text>
-            <Text style={styles.finalScoreText}>Score: {score}</Text>
-            <Text style={styles.bestDisplay}>Best: {highScore}</Text>
-            <Text style={styles.restartText}>Tap to Retry</Text>
-          </View>
-        </TouchableWithoutFeedback>
+        <GameOverScreen score={score} highScore={highScore} accentColor="#a855f7" onReplay={launchGame} />
       )}
     </View>
   );

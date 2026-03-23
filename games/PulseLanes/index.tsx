@@ -1,4 +1,6 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { showInterstitial, showRewarded } from "@/shared/ads/AdManager";
+import GameOverScreen from "@/shared/components/GameOverScreen";
 import * as Haptics from "expo-haptics";
 import React, {
     useCallback,
@@ -161,6 +163,7 @@ export default function PulseLanes() {
     phaseRef.current = "over";
     setPhase("over");
     Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
+    showInterstitial();
     const finalScore = scoreRef.current;
     const stored = await AsyncStorage.getItem(STORAGE_KEY);
     const prev = stored ? parseInt(stored, 10) : 0;
@@ -290,31 +293,35 @@ export default function PulseLanes() {
     };
   }, [phase, tick]);
 
+  const launchGame = useCallback(() => {
+    phaseRef.current = "playing";
+    setPhase("playing");
+    scoreRef.current = 0;
+    setScore(0);
+    speedRef.current = 5.2;
+    spawnTimerRef.current = 0;
+    playerLaneRef.current = 1;
+    playerX.value = withTiming(
+      LANE_WIDTH * 1 + LANE_WIDTH / 2 - PLAYER_SIZE / 2,
+      { duration: 0 },
+    );
+    obstaclesRef.current.forEach((o, i) => {
+      o.active = false;
+      o.y = -100;
+      obstacleYs[i].value = -100;
+      obstacleOpacities[i].value = 0;
+    });
+  }, [obstacleOpacities, obstacleYs, playerX]);
+
   const handleTap = useCallback(
-    (evt: { nativeEvent: { locationX: number } }) => {
-      if (phase === "idle" || phase === "over") {
-        // Start/restart
-        phaseRef.current = "playing";
-        setPhase("playing");
-        scoreRef.current = 0;
-        setScore(0);
-        speedRef.current = 5.2;
-        spawnTimerRef.current = 0;
-        playerLaneRef.current = 1;
-        playerX.value = withTiming(
-          LANE_WIDTH * 1 + LANE_WIDTH / 2 - PLAYER_SIZE / 2,
-          {
-            duration: 0,
-          },
-        );
-        obstaclesRef.current.forEach((o, i) => {
-          o.active = false;
-          o.y = -100;
-          obstacleYs[i].value = -100;
-          obstacleOpacities[i].value = 0;
-        });
+    async (evt: { nativeEvent: { locationX: number } }) => {
+      if (phase === "idle") {
+        await showRewarded();
+        launchGame();
         return;
       }
+
+      if (phase === "over") return; // handled by GameOverScreen buttons
 
       const x = evt.nativeEvent.locationX;
       let newLane = playerLaneRef.current;
@@ -332,7 +339,7 @@ export default function PulseLanes() {
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
       }
     },
-    [obstacleOpacities, obstacleYs, phase, playerX],
+    [phase, playerX, launchGame],
   );
 
   const playerStyle = useAnimatedStyle(() => ({
@@ -455,12 +462,12 @@ export default function PulseLanes() {
         )}
 
         {phase === "over" && (
-          <View style={styles.overlay}>
-            <Text style={styles.gameOverText}>GAME OVER</Text>
-            <Text style={styles.finalScoreText}>Score: {score}</Text>
-            <Text style={styles.highScoreDisplay}>Best: {highScore}</Text>
-            <Text style={styles.subtitleText}>Tap to Restart</Text>
-          </View>
+          <GameOverScreen
+            score={score}
+            highScore={highScore}
+            accentColor="#00f5ff"
+            onReplay={launchGame}
+          />
         )}
       </View>
     </TouchableWithoutFeedback>

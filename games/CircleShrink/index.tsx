@@ -15,6 +15,8 @@ import Animated, {
 } from "react-native-reanimated";
 import * as Haptics from "expo-haptics";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { showInterstitial, showRewarded } from "@/shared/ads/AdManager";
+import GameOverScreen from "@/shared/components/GameOverScreen";
 
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get("window");
 const MAX_CIRCLES = 8;
@@ -284,6 +286,7 @@ export default function CircleShrink() {
     phaseRef.current = "over";
     setPhase("over");
     Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
+    showInterstitial();
     const finalScore = scoreRef.current;
     const stored = await AsyncStorage.getItem(STORAGE_KEY);
     const prev = stored ? parseInt(stored, 10) : 0;
@@ -397,8 +400,9 @@ export default function CircleShrink() {
     });
   }, [circleOpacities]);
 
-  const handleScreenTap = useCallback(() => {
-    if (phase === "idle" || phase === "over") {
+  const handleScreenTap = useCallback(async () => {
+    if (phase === "idle") {
+      await showRewarded();
       startGame();
     }
   }, [phase, startGame]);
@@ -465,14 +469,12 @@ export default function CircleShrink() {
       )}
 
       {phase === "over" && (
-        <TouchableWithoutFeedback onPress={handleScreenTap}>
-          <View style={styles.overlay}>
-            <Text style={styles.gameOverText}>GAME OVER</Text>
-            <Text style={styles.finalScoreText}>Score: {score}</Text>
-            <Text style={styles.bestDisplay}>Best: {highScore}</Text>
-            <Text style={styles.subtitleText}>Tap to Restart</Text>
-          </View>
-        </TouchableWithoutFeedback>
+        <GameOverScreen
+          score={score}
+          highScore={highScore}
+          accentColor="#4ecdc4"
+          onReplay={startGame}
+        />
       )}
     </View>
   );

@@ -17,6 +17,8 @@ import Animated, {
 import * as Haptics from 'expo-haptics';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useGameLoop } from '../../shared/hooks/useGameLoop';
+import { showInterstitial, showRewarded } from "@/shared/ads/AdManager";
+import GameOverScreen from "@/shared/components/GameOverScreen";
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
 const STORAGE_KEY = '@color-clash/highscore';
@@ -109,6 +111,7 @@ export default function ColorClash() {
     setPhase('over');
     cancelAnimation(timerProgress);
     Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
+    showInterstitial();
     const finalScore = scoreRef.current;
     const stored = await AsyncStorage.getItem(STORAGE_KEY);
     const prev = stored ? parseInt(stored, 10) : 0;
@@ -178,7 +181,7 @@ export default function ColorClash() {
     [round, timerProgress, nextRound, triggerGameOver],
   );
 
-  const startGame = useCallback(() => {
+  const launchGame = useCallback(() => {
     scoreRef.current = 0;
     streakRef.current = 0;
     isAnsweringRef.current = false;
@@ -201,10 +204,11 @@ export default function ColorClash() {
   }, [timerProgress]);
 
   const handleScreenTap = useCallback(() => {
-    if (phase === 'idle' || phase === 'over') {
-      startGame();
+    if (phase === 'idle') {
+      showRewarded();
+      launchGame();
     }
-  }, [phase, startGame]);
+  }, [phase, launchGame]);
 
   return (
     <View
@@ -270,14 +274,7 @@ export default function ColorClash() {
       )}
 
       {phase === 'over' && (
-        <TouchableWithoutFeedback onPress={handleScreenTap}>
-          <View style={styles.overlay}>
-            <Text style={styles.gameOverText}>GAME OVER</Text>
-            <Text style={styles.finalScoreText}>Score: {score}</Text>
-            <Text style={styles.bestDisplay}>Best: {highScore}</Text>
-            <Text style={styles.subtitleText}>Tap to Restart</Text>
-          </View>
-        </TouchableWithoutFeedback>
+        <GameOverScreen score={score} highScore={highScore} accentColor="#ff4444" onReplay={launchGame} />
       )}
     </View>
   );
