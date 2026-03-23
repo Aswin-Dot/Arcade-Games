@@ -4,6 +4,8 @@ import Animated, { useSharedValue, useAnimatedStyle, withSequence, withTiming } 
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import * as Haptics from 'expo-haptics';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { showInterstitial, showRewarded } from '@/shared/ads/AdManager';
+import GameOverScreen from '@/shared/components/GameOverScreen';
 
 const STORAGE_KEY = '@tile-shift/highscore';
 const { width: SW } = Dimensions.get('window');
@@ -155,6 +157,10 @@ export default function TileShift() {
     AsyncStorage.getItem(STORAGE_KEY).then((v) => { if (v) setHighScore(parseInt(v, 10)); });
   }, []);
 
+  useEffect(() => {
+    showRewarded();
+  }, []);
+
   const saveHighScore = useCallback(async (s: number) => {
     const stored = await AsyncStorage.getItem(STORAGE_KEY);
     const prev = stored ? parseInt(stored, 10) : 0;
@@ -193,6 +199,7 @@ export default function TileShift() {
       if (!hasValidMove(withNew)) {
         setPhase('over');
         Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
+        showInterstitial();
       }
     },
     [phase, cellScales, saveHighScore],
@@ -215,7 +222,7 @@ export default function TileShift() {
     [phase, doMove],
   );
 
-  const restart = useCallback(() => {
+  const launchGame = useCallback(() => {
     scoreRef.current = 0;
     const fresh = initGrid();
     gridRef.current = fresh;
@@ -255,12 +262,7 @@ export default function TileShift() {
         <Text style={styles.hint}>Swipe to shift tiles • Match to merge</Text>
 
         {phase === 'over' && (
-          <View style={styles.overlay}>
-            <Text style={styles.gameOverText}>GAME OVER</Text>
-            <Text style={styles.finalScoreText}>Score: {score}</Text>
-            <Text style={styles.bestDisplay}>Best: {highScore}</Text>
-            <Text style={styles.restartText} onPress={restart}>Tap to Restart</Text>
-          </View>
+          <GameOverScreen score={score} highScore={highScore} accentColor="#ffd700" onReplay={launchGame} />
         )}
       </View>
     </GestureDetector>
@@ -292,12 +294,4 @@ const styles = StyleSheet.create({
   },
   cellText: { color: '#ffffff', fontWeight: 'bold' },
   hint: { color: '#ffffff30', fontSize: 13, marginTop: 20 },
-  overlay: {
-    ...StyleSheet.absoluteFillObject, backgroundColor: '#1a1000ee',
-    justifyContent: 'center', alignItems: 'center', zIndex: 20,
-  },
-  gameOverText: { color: '#ffd700', fontSize: 36, fontWeight: 'bold', letterSpacing: 3 },
-  finalScoreText: { color: '#ffffff', fontSize: 28, fontWeight: 'bold', marginTop: 16 },
-  bestDisplay: { color: '#ffd70080', fontSize: 20, marginTop: 8 },
-  restartText: { color: '#ffffff90', fontSize: 18, marginTop: 28 },
 });

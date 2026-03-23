@@ -4,6 +4,8 @@ import Animated, { useSharedValue, useAnimatedStyle } from 'react-native-reanima
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import * as Haptics from 'expo-haptics';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { showInterstitial, showRewarded } from "@/shared/ads/AdManager";
+import GameOverScreen from "@/shared/components/GameOverScreen";
 import { useGameLoop } from '../../shared/hooks/useGameLoop';
 
 const STORAGE_KEY = '@slice-frenzy/highscore';
@@ -85,6 +87,7 @@ export default function SliceFrenzy() {
     phaseRef.current = 'over';
     setPhase('over');
     Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
+    showInterstitial();
     const s = scoreRef.current;
     const stored = await AsyncStorage.getItem(STORAGE_KEY);
     const prev = stored ? parseInt(stored, 10) : 0;
@@ -195,7 +198,7 @@ export default function SliceFrenzy() {
 
   useGameLoop(tick, phase === 'playing');
 
-  const startGame = useCallback(() => {
+  const launchGame = useCallback(() => {
     scoreRef.current = 0;
     livesRef.current = 3;
     spawnTimerRef.current = 0;
@@ -215,14 +218,24 @@ export default function SliceFrenzy() {
     setPhase('playing');
   }, [pxs, pys, viss]);
 
+  const startGame = useCallback(() => {
+    if (phaseRef.current === 'idle') {
+      showRewarded();
+    }
+    launchGame();
+  }, [launchGame]);
+
   const panGesture = useMemo(
     () =>
       Gesture.Pan()
         .runOnJS(true)
         .minDistance(5)
         .onBegin((e) => {
-          if (phaseRef.current === 'idle' || phaseRef.current === 'over') {
+          if (phaseRef.current === 'idle') {
             startGame();
+            return;
+          }
+          if (phaseRef.current === 'over') {
             return;
           }
           swipeActiveRef.current = true;
@@ -269,12 +282,7 @@ export default function SliceFrenzy() {
         )}
 
         {phase === 'over' && (
-          <View style={styles.overlay}>
-            <Text style={styles.gameOverText}>GAME OVER</Text>
-            <Text style={styles.finalScoreText}>Score: {score}</Text>
-            <Text style={styles.bestDisplay}>Best: {highScore}</Text>
-            <Text style={styles.subtitleText}>Swipe to Restart</Text>
-          </View>
+          <GameOverScreen score={score} highScore={highScore} accentColor="#ff4757" onReplay={launchGame} />
         )}
       </View>
     </GestureDetector>

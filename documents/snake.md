@@ -1,10 +1,10 @@
-# App Store Submission — Simpli - Snake
+# App Store Submission — Classic Snake
 
 ## App Identity
 
 | Field | Value |
 |-------|-------|
-| **App Name** | Simpli - Snake |
+| **App Name** | Classic Snake |
 | **Subtitle** (30 chars max) | Classic Snake, Neon Style |
 | **Bundle ID** | com.theze.snake |
 | **SKU** | simpli-snake-001 |
@@ -23,7 +23,7 @@
 
 ## App Icon
 
-File: `documents/icons/snake.png` (1024x1024, no alpha, no rounded corners)
+File: `assets/images/icons/snake.png` (1024x1024, no alpha, no rounded corners)
 
 ## Description
 
@@ -31,7 +31,7 @@ File: `documents/icons/snake.png` (1024x1024, no alpha, no rounded corners)
 The classic snake game reimagined with stunning neon visuals. Swipe to move, eat to grow, and chase your highest score. How long can you survive?
 
 ### Full Description
-Simpli - Snake brings the timeless arcade classic to your fingertips with a fresh, neon-infused visual style. Guide your snake across a glowing grid, collect food to grow longer, and avoid crashing into your own tail or the walls.
+Classic Snake brings the timeless arcade classic to your fingertips with a fresh, neon-infused visual style. Guide your snake across a glowing grid, collect food to grow longer, and avoid crashing into your own tail or the walls.
 
 Simple to learn, impossible to master. Each game starts easy, but as your snake grows longer, every move becomes a strategic decision. One wrong swipe and it is game over.
 
@@ -46,7 +46,7 @@ FEATURES:
 HOW TO PLAY:
 Swipe in any direction to guide your snake. Eat the food that appears on the grid to grow longer and increase your score. Avoid hitting the walls or your own tail. The longer you survive, the higher your score.
 
-Simpli - Snake is part of the Simpli Games collection, a series of fun, free arcade games designed for quick play sessions and endless replayability.
+Classic Snake is part of the Simpli Games collection, a series of fun, free arcade games designed for quick play sessions and endless replayability.
 
 Download now and see how high you can score.
 
@@ -68,7 +68,7 @@ snake,arcade,classic,neon,retro,puzzle,casual,swipe,highscore,free,simple,grid,g
 | **Contact First Name** | Rishi |
 | **Contact Last Name** | Kumar |
 | **Contact Email** | android.dev@theze.in |
-| **Contact Phone** | +91 (update with actual number) |
+| **Contact Phone** | +91 8122726244 |
 | **Demo Account** | Not required (no login) |
 | **Review Notes** | This is a simple arcade game with no login, no in-app purchases, and no user-generated content. The game is ad-supported using the TopOn ad mediation SDK. Swipe in any direction to play. |
 

@@ -12,6 +12,8 @@ import Animated, {
 } from 'react-native-reanimated';
 import * as Haptics from 'expo-haptics';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { showInterstitial, showRewarded } from '@/shared/ads/AdManager';
+import GameOverScreen from '@/shared/components/GameOverScreen';
 import { useGameLoop } from '../../shared/hooks/useGameLoop';
 
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window');
@@ -130,6 +132,7 @@ export default function GravityFlip() {
     phaseRef.current = 'over';
     setPhase('over');
     Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
+    showInterstitial();
     const finalScore = Math.floor(scoreRef.current);
     const stored = await AsyncStorage.getItem(STORAGE_KEY);
     const prev = stored ? parseInt(stored, 10) : 0;
@@ -227,7 +230,7 @@ export default function GravityFlip() {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
   }, []);
 
-  const startGame = useCallback(() => {
+  const launchGame = useCallback(() => {
     scoreRef.current = 0;
     velocityRef.current = 0;
     gravityDirRef.current = 1;
@@ -247,12 +250,13 @@ export default function GravityFlip() {
   }, [playerY, obsXs, obsViss, gcs]);
 
   const handleScreenTap = useCallback(() => {
-    if (phase === 'idle' || phase === 'over') {
-      startGame();
+    if (phase === 'idle') {
+      showRewarded();
+      launchGame();
     } else if (phase === 'playing') {
       handleFlip();
     }
-  }, [phase, startGame, handleFlip]);
+  }, [phase, launchGame, handleFlip]);
 
   return (
     <TouchableWithoutFeedback onPress={handleScreenTap}>
@@ -292,12 +296,7 @@ export default function GravityFlip() {
         )}
 
         {phase === 'over' && (
-          <View style={styles.overlay}>
-            <Text style={styles.gameOverText}>GAME OVER</Text>
-            <Text style={styles.finalScoreText}>Score: {Math.floor(score)}</Text>
-            <Text style={styles.bestDisplay}>Best: {highScore}</Text>
-            <Text style={styles.subtitleText}>Tap to Restart</Text>
-          </View>
+          <GameOverScreen score={score} highScore={highScore} accentColor="#39ff14" onReplay={launchGame} />
         )}
       </View>
     </TouchableWithoutFeedback>

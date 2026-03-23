@@ -1,10 +1,10 @@
-# App Store Submission — Simpli - Pulse Lanes
+# App Store Submission — Pulse Lanes
 
 ## App Identity
 
 | Field | Value |
 |-------|-------|
-| **App Name** | Simpli - Pulse Lanes |
+| **App Name** | Pulse Lanes |
 | **Subtitle** (30 chars max) | Switch Lanes, Dodge Pulses |
 | **Bundle ID** | com.theze.pulselanes |
 | **SKU** | simpli-pulse-lanes-001 |
@@ -23,7 +23,7 @@
 
 ## App Icon
 
-File: `documents/icons/pulse-lanes.png` (1024x1024, no alpha, no rounded corners)
+File: `assets/images/icons/pulse-lanes.png` (1024x1024, no alpha, no rounded corners)
 
 ## Description
 
@@ -31,7 +31,7 @@ File: `documents/icons/pulse-lanes.png` (1024x1024, no alpha, no rounded corners
 Three lanes, endless obstacles, one goal: survive. Tap to switch lanes and dodge the incoming pulses. A rhythm-driven arcade runner that never stops.
 
 ### Full Description
-Simpli - Pulse Lanes is an endless arcade runner where you switch between three lanes to avoid incoming obstacles. Tap left or right to change lanes, time your moves carefully, and survive as long as possible.
+Pulse Lanes is an endless arcade runner where you switch between three lanes to avoid incoming obstacles. Tap left or right to change lanes, time your moves carefully, and survive as long as possible.
 
 Obstacles come in waves with rhythm-like patterns. Learn the patterns, anticipate the pulses, and react faster as the speed increases. One collision and the run is over.
 
@@ -47,7 +47,7 @@ FEATURES:
 HOW TO PLAY:
 Your character moves forward automatically in one of three lanes. Tap the left side of the screen to move left, or the right side to move right. Dodge the pulse obstacles that appear in each lane. The longer you survive, the faster the pulses come. Time your lane switches to weave through the patterns.
 
-Simpli - Pulse Lanes is part of the Simpli Games collection, a series of fun, free arcade games designed for quick play sessions and endless replayability.
+Pulse Lanes is part of the Simpli Games collection, a series of fun, free arcade games designed for quick play sessions and endless replayability.
 
 Download now and ride the pulse.
 

@@ -6,45 +6,45 @@ const VARIANTS = {
     slug: "snake-classic",
     bundleId: "com.theze.snake",
     androidPackage: "com.theze.snake",
-    icon: "./assets/images/icon.png",
-    splash: "./assets/images/splash-icon.png",
-    adaptiveForeground: "./assets/images/android-icon-foreground.png",
+    icon: "./assets/images/icons/snake.png",
+    splash: "./assets/images/icons/snake.png",
+    adaptiveForeground: "./assets/images/icons/snake.png",
   },
   "circle-shrink": {
     name: "Circle Shrink",
     slug: "circle-shrink",
     bundleId: "com.theze.circleshrink",
     androidPackage: "com.theze.circleshrink",
-    icon: "./assets/images/icon.png",
-    splash: "./assets/images/splash-icon.png",
-    adaptiveForeground: "./assets/images/android-icon-foreground.png",
+    icon: "./assets/images/icons/circle-shrink.png",
+    splash: "./assets/images/icons/circle-shrink.png",
+    adaptiveForeground: "./assets/images/icons/circle-shrink.png",
   },
   "laser-dodge": {
     name: "Laser Dodge",
     slug: "laser-dodge",
     bundleId: "com.theze.laserdodge",
     androidPackage: "com.theze.laserdodge",
-    icon: "./assets/images/icon.png",
-    splash: "./assets/images/splash-icon.png",
-    adaptiveForeground: "./assets/images/android-icon-foreground.png",
+    icon: "./assets/images/icons/laser-dodge.png",
+    splash: "./assets/images/icons/laser-dodge.png",
+    adaptiveForeground: "./assets/images/icons/laser-dodge.png",
   },
   "pulse-lanes": {
     name: "Pulse Lanes",
     slug: "pulse-lanes",
     bundleId: "com.theze.pulselanes",
     androidPackage: "com.theze.pulselanes",
-    icon: "./assets/images/icon.png",
-    splash: "./assets/images/splash-icon.png",
-    adaptiveForeground: "./assets/images/android-icon-foreground.png",
+    icon: "./assets/images/icons/pulse-lanes.png",
+    splash: "./assets/images/icons/pulse-lanes.png",
+    adaptiveForeground: "./assets/images/icons/pulse-lanes.png",
   },
   "math-rush": {
     name: "Math Rush",
     slug: "math-rush",
     bundleId: "com.theze.mathrush",
     androidPackage: "com.theze.mathrush",
-    icon: "./assets/images/icon.png",
-    splash: "./assets/images/splash-icon.png",
-    adaptiveForeground: "./assets/images/android-icon-foreground.png",
+    icon: "./assets/images/icons/math-rush.png",
+    splash: "./assets/images/icons/math-rush.png",
+    adaptiveForeground: "./assets/images/icons/math-rush.png",
   },
   "gravity-flip": {
     name: "Gravity Flip",
@@ -158,8 +158,20 @@ const VARIANT_EAS_PROJECT_IDS = {
 const resolvedEasProjectId =
   process.env.EAS_PROJECT_ID ||
   (variant ? VARIANT_EAS_PROJECT_IDS[variant] : undefined);
+// Build plugins array — override expo-splash-screen with per-game icon when variant is set
+const basePlugins = Array.isArray(baseConfig.plugins) ? baseConfig.plugins : [];
+const splashImage = selectedVariant ? selectedVariant.icon : "./assets/images/splash-icon.png";
 const plugins = [
-  ...(Array.isArray(baseConfig.plugins) ? baseConfig.plugins : []),
+  // Re-add base plugins but replace expo-splash-screen config with variant icon
+  ...basePlugins.map((p) => {
+    if (Array.isArray(p) && p[0] === "expo-splash-screen") {
+      return ["expo-splash-screen", { ...p[1], image: splashImage }];
+    }
+    if (p === "expo-splash-screen") {
+      return ["expo-splash-screen", { image: splashImage }];
+    }
+    return p;
+  }),
   // Raise iOS minimum deployment target to 17.0:
   // - Expo SDK 54 requires ≥ 15.1
   // - react-native-topon@0.1.7 pulls TPNYandexSDKAdapter 6.4.93 which requires ≥ 17.0
@@ -195,7 +207,7 @@ module.exports = {
       ...baseConfig.ios,
       bundleIdentifier: selectedVariant
         ? selectedVariant.bundleId
-        : baseConfig.ios?.bundleIdentifier,
+        : baseConfig.ios?.bundleIdentifier || "com.theze",
       infoPlist: {
         ...(baseConfig.ios?.infoPlist || {}),
         // Declare app uses no exempt encryption (simple games, no custom crypto)

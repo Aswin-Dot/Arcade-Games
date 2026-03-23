@@ -13,6 +13,8 @@ import Animated, {
 import * as Haptics from 'expo-haptics';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useGameLoop } from '../../shared/hooks/useGameLoop';
+import { showInterstitial, showRewarded } from '@/shared/ads/AdManager';
+import GameOverScreen from '@/shared/components/GameOverScreen';
 
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window');
 const STORAGE_KEY = '@stack-blocks/highscore';
@@ -69,6 +71,7 @@ export default function StackBlocks() {
     phaseRef.current = 'over';
     setPhase('over');
     Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
+    showInterstitial();
     const finalScore = scoreRef.current;
     const stored = await AsyncStorage.getItem(STORAGE_KEY);
     const prev = stored ? parseInt(stored, 10) : 0;
@@ -102,33 +105,37 @@ export default function StackBlocks() {
 
   useGameLoop(tick, phase === 'playing');
 
+  const launchGame = useCallback(() => {
+    const initialWidth = INITIAL_WIDTH;
+    scoreRef.current = 0;
+    colorIdxRef.current = 0;
+    currentWidthRef.current = initialWidth;
+    positionRef.current = 0;
+    directionRef.current = 1;
+    speedRef.current = SPEED_START;
+
+    blockX.value = 0;
+    blockWidth.value = initialWidth;
+
+    const base: PlacedBlock = {
+      x: (SCREEN_WIDTH - initialWidth) / 2,
+      width: initialWidth,
+      color: BLOCK_COLORS[0],
+    };
+    placedBlocksRef.current = [base];
+    setPlacedBlocks([base]);
+    setCurrentWidth(initialWidth);
+    setScore(0);
+    colorIdxRef.current = 1;
+
+    phaseRef.current = 'playing';
+    setPhase('playing');
+  }, [blockX, blockWidth]);
+
   const handleTap = useCallback(() => {
-    if (phaseRef.current === 'idle' || phaseRef.current === 'over') {
-      // Start / restart
-      const initialWidth = INITIAL_WIDTH;
-      scoreRef.current = 0;
-      colorIdxRef.current = 0;
-      currentWidthRef.current = initialWidth;
-      positionRef.current = 0;
-      directionRef.current = 1;
-      speedRef.current = SPEED_START;
-
-      blockX.value = 0;
-      blockWidth.value = initialWidth;
-
-      const base: PlacedBlock = {
-        x: (SCREEN_WIDTH - initialWidth) / 2,
-        width: initialWidth,
-        color: BLOCK_COLORS[0],
-      };
-      placedBlocksRef.current = [base];
-      setPlacedBlocks([base]);
-      setCurrentWidth(initialWidth);
-      setScore(0);
-      colorIdxRef.current = 1;
-
-      phaseRef.current = 'playing';
-      setPhase('playing');
+    if (phaseRef.current === 'idle') {
+      showRewarded();
+      launchGame();
       return;
     }
 
@@ -179,7 +186,7 @@ export default function StackBlocks() {
     if (overlapWidth < MIN_BLOCK_WIDTH) {
       triggerGameOver();
     }
-  }, [blockX, blockWidth, triggerGameOver]);
+  }, [blockX, blockWidth, triggerGameOver, launchGame]);
 
   // Compute vertical offset so blocks stack upward from base
   const blockCount = placedBlocks.length;
@@ -245,12 +252,7 @@ export default function StackBlocks() {
         )}
 
         {phase === 'over' && (
-          <View style={styles.overlay}>
-            <Text style={styles.gameOverText}>GAME OVER</Text>
-            <Text style={styles.finalScoreText}>Score: {score}</Text>
-            <Text style={styles.bestDisplay}>Best: {highScore}</Text>
-            <Text style={styles.subtitleText}>Tap to Restart</Text>
-          </View>
+          <GameOverScreen score={score} highScore={highScore} accentColor="#00f5ff" onReplay={launchGame} />
         )}
       </View>
     </TouchableWithoutFeedback>

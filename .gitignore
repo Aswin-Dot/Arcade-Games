@@ -47,6 +47,3 @@ app-example
 
 # Local env (EAS project IDs are hardcoded in app.config.js — .env not needed)
 .env
-
-# Expo web build output
-web/

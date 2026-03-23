@@ -1,10 +1,10 @@
-# App Store Submission — Simpli - Circle Shrink
+# App Store Submission — Circle Shrink
 
 ## App Identity
 
 | Field | Value |
 |-------|-------|
-| **App Name** | Simpli - Circle Shrink |
+| **App Name** | Circle Shrink |
 | **Subtitle** (30 chars max) | Tap Fast Before They Vanish |
 | **Bundle ID** | com.theze.circleshrink |
 | **SKU** | simpli-circle-shrink-001 |
@@ -23,7 +23,7 @@
 
 ## App Icon
 
-File: `documents/icons/circle-shrink.png` (1024x1024, no alpha, no rounded corners)
+File: `assets/images/icons/circle-shrink.png` (1024x1024, no alpha, no rounded corners)
 
 ## Description
 
@@ -31,7 +31,7 @@ File: `documents/icons/circle-shrink.png` (1024x1024, no alpha, no rounded corne
 Colourful circles are shrinking fast. Tap them before they disappear. Sounds easy? Think again. Test your reflexes in this addictive one-tap arcade challenge.
 
 ### Full Description
-Simpli - Circle Shrink is a fast-paced reflex game that tests how quickly you can react. Colourful circles appear on screen and immediately begin shrinking. Your job is simple: tap each circle before it vanishes completely.
+Circle Shrink is a fast-paced reflex game that tests how quickly you can react. Colourful circles appear on screen and immediately begin shrinking. Your job is simple: tap each circle before it vanishes completely.
 
 As you progress, circles shrink faster, appear in trickier positions, and overlap in ways that demand split-second decisions. Miss one and it is game over.
 
@@ -46,7 +46,7 @@ FEATURES:
 HOW TO PLAY:
 Circles appear on screen and begin shrinking immediately. Tap each circle before it disappears. The faster you tap, the more points you earn. Miss a circle and the game ends. Each round gets faster and more challenging.
 
-Simpli - Circle Shrink is part of the Simpli Games collection, a series of fun, free arcade games designed for quick play sessions and endless replayability.
+Circle Shrink is part of the Simpli Games collection, a series of fun, free arcade games designed for quick play sessions and endless replayability.
 
 Download now and put your reflexes to the test.
 

@@ -1,0 +1,127 @@
+import React from 'react';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { useRouter } from 'expo-router';
+
+interface GameOverScreenProps {
+  score: number;
+  highScore: number;
+  /** Label for the score (default: "Score") — use "Time" for survival games */
+  scoreLabel?: string;
+  /** Format the score for display (default: String(score)) */
+  formatScore?: (score: number) => string;
+  /** Accent color for buttons and highlights */
+  accentColor?: string;
+  /** Called when user taps Replay — should start game immediately (no ad) */
+  onReplay: () => void;
+}
+
+export default function GameOverScreen({
+  score,
+  highScore,
+  scoreLabel = 'Score',
+  formatScore,
+  accentColor = '#00f5ff',
+  onReplay,
+}: GameOverScreenProps) {
+  const router = useRouter();
+  const isNewHigh = score > 0 && score >= highScore;
+  const displayScore = formatScore ? formatScore(score) : String(score);
+  const displayBest = formatScore ? formatScore(highScore) : String(highScore);
+
+  return (
+    <View style={styles.overlay}>
+      <Text style={styles.gameOverText}>GAME OVER</Text>
+
+      {isNewHigh && (
+        <Text style={styles.newHighText}>★ NEW HIGH SCORE ★</Text>
+      )}
+
+      <Text style={[styles.scoreText, { color: accentColor }]}>
+        {scoreLabel}: {displayScore}
+      </Text>
+
+      {!isNewHigh && (
+        <Text style={styles.bestText}>Best: {displayBest}</Text>
+      )}
+
+      <View style={styles.buttonsRow}>
+        <TouchableOpacity
+          style={[styles.button, { borderColor: accentColor }]}
+          onPress={onReplay}
+          activeOpacity={0.7}
+        >
+          <Text style={[styles.buttonText, { color: accentColor }]}>REPLAY</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={[styles.button, styles.menuButton]}
+          onPress={() => router.replace('/')}
+          activeOpacity={0.7}
+        >
+          <Text style={[styles.buttonText, styles.menuButtonText]}>MAIN MENU</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  overlay: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'rgba(10, 10, 20, 0.92)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    zIndex: 20,
+    gap: 12,
+  },
+  gameOverText: {
+    fontSize: 38,
+    fontWeight: '900',
+    color: '#ff4444',
+    letterSpacing: 6,
+    textShadowColor: 'rgba(255, 68, 68, 0.6)',
+    textShadowOffset: { width: 0, height: 0 },
+    textShadowRadius: 16,
+    marginBottom: 4,
+  },
+  newHighText: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: '#ffd700',
+    letterSpacing: 3,
+    textShadowColor: 'rgba(255, 215, 0, 0.5)',
+    textShadowOffset: { width: 0, height: 0 },
+    textShadowRadius: 10,
+  },
+  scoreText: {
+    fontSize: 28,
+    fontWeight: 'bold',
+    marginTop: 4,
+  },
+  bestText: {
+    fontSize: 18,
+    color: 'rgba(255, 255, 255, 0.5)',
+  },
+  buttonsRow: {
+    flexDirection: 'row',
+    gap: 16,
+    marginTop: 28,
+  },
+  button: {
+    paddingVertical: 14,
+    paddingHorizontal: 28,
+    borderWidth: 2,
+    borderRadius: 8,
+  },
+  buttonText: {
+    fontSize: 14,
+    fontWeight: '700',
+    letterSpacing: 2,
+  },
+  menuButton: {
+    borderColor: 'rgba(255, 255, 255, 0.3)',
+  },
+  menuButtonText: {
+    color: 'rgba(255, 255, 255, 0.6)',
+  },
+});

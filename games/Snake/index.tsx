@@ -14,6 +14,8 @@ import {
   type LayoutChangeEvent,
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { showInterstitial, showRewarded } from '@/shared/ads/AdManager';
+import GameOverScreen from '@/shared/components/GameOverScreen';
 
 // ─── Constants ───────────────────────────────────────────────────────────────
 
@@ -179,12 +181,17 @@ export default function SnakeGame() {
     });
   }, []);
 
-  const startGame = useCallback(() => {
+  const launchGame = useCallback(() => {
     if (intervalRef.current) clearInterval(intervalRef.current);
     const fresh: GameState = { ...getInitialState(), status: 'RUNNING' };
     setState(fresh);
     intervalRef.current = setInterval(() => tickRef.current?.(), INITIAL_SPEED);
   }, []);
+
+  const startGame = useCallback(async () => {
+    await showRewarded();
+    launchGame();
+  }, [launchGame]);
 
   const togglePause = useCallback(() => {
     setState((prev) => {
@@ -199,6 +206,13 @@ export default function SnakeGame() {
       return prev;
     });
   }, []);
+
+  // Show interstitial ad on game over
+  useEffect(() => {
+    if (state.status === 'DEAD') {
+      showInterstitial();
+    }
+  }, [state.status]);
 
   useEffect(
     () => () => {
@@ -329,31 +343,30 @@ export default function SnakeGame() {
                 <Text style={styles.overlayHint}>Swipe or use D-Pad to move</Text>
               </>
             )}
-            {state.status === 'DEAD' && (
-              <>
-                <Text style={[styles.overlayTitle, { color: '#ff4444' }]}>GAME OVER</Text>
-                <Text style={styles.overlayScore}>Score: {state.score}</Text>
-                {state.score > 0 && state.score >= highScore && (
-                  <Text style={styles.newHigh}>{'\u2605'} NEW HIGH SCORE {'\u2605'}</Text>
-                )}
-              </>
-            )}
             {state.status === 'PAUSED' && <Text style={styles.overlayTitle}>PAUSED</Text>}
-            <TouchableOpacity
-              style={styles.startBtn}
-              onPress={state.status === 'PAUSED' ? togglePause : startGame}
-              activeOpacity={0.7}>
-              <Text style={styles.startBtnText}>
-                {state.status === 'PAUSED'
-                  ? 'RESUME'
-                  : state.status === 'DEAD'
-                    ? 'PLAY AGAIN'
-                    : 'START GAME'}
-              </Text>
-            </TouchableOpacity>
+            {state.status !== 'DEAD' && (
+              <TouchableOpacity
+                style={styles.startBtn}
+                onPress={state.status === 'PAUSED' ? togglePause : startGame}
+                activeOpacity={0.7}>
+                <Text style={styles.startBtnText}>
+                  {state.status === 'PAUSED' ? 'RESUME' : 'START GAME'}
+                </Text>
+              </TouchableOpacity>
+            )}
           </View>
         )}
       </View>
+
+      {/* ── Game Over ── */}
+      {state.status === 'DEAD' && (
+        <GameOverScreen
+          score={state.score}
+          highScore={highScore}
+          accentColor="#00ff88"
+          onReplay={launchGame}
+        />
+      )}
 
       {/* ── D-Pad ── */}
       <View style={styles.dpad}>

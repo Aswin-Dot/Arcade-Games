@@ -1,10 +1,10 @@
-# App Store Submission — Simpli - Laser Dodge
+# App Store Submission — Laser Dodge
 
 ## App Identity
 
 | Field | Value |
 |-------|-------|
-| **App Name** | Simpli - Laser Dodge |
+| **App Name** | Laser Dodge |
 | **Subtitle** (30 chars max) | Dodge Lasers, Stay Alive |
 | **Bundle ID** | com.theze.laserdodge |
 | **SKU** | simpli-laser-dodge-001 |
@@ -23,7 +23,7 @@
 
 ## App Icon
 
-File: `documents/icons/laser-dodge.png` (1024x1024, no alpha, no rounded corners)
+File: `assets/images/icons/laser-dodge.png` (1024x1024, no alpha, no rounded corners)
 
 ## Description
 
@@ -31,7 +31,7 @@ File: `documents/icons/laser-dodge.png` (1024x1024, no alpha, no rounded corners
 Lasers are closing in from every direction. Drag to dodge, survive as long as you can. A thrilling arcade challenge that gets harder every second.
 
 ### Full Description
-Simpli - Laser Dodge drops you into an arena where laser beams fire from all four edges of the screen. Your only defence is your reflexes. Drag your character to weave through the gaps and survive as long as possible.
+Laser Dodge drops you into an arena where laser beams fire from all four edges of the screen. Your only defence is your reflexes. Drag your character to weave through the gaps and survive as long as possible.
 
 As time passes, lasers fire faster, gaps shrink, and new beam patterns emerge. Every second you survive pushes your score higher. One hit and it is game over.
 
@@ -47,7 +47,7 @@ FEATURES:
 HOW TO PLAY:
 Drag your character around the screen to avoid the incoming laser beams. Lasers fire from the top, bottom, left, and right edges. Watch for the warning indicators that show where the next laser will appear. Survive as long as you can to achieve the highest score.
 
-Simpli - Laser Dodge is part of the Simpli Games collection, a series of fun, free arcade games designed for quick play sessions and endless replayability.
+Laser Dodge is part of the Simpli Games collection, a series of fun, free arcade games designed for quick play sessions and endless replayability.
 
 Download now and see how long you can dodge.
 

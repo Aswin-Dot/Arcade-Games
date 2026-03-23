@@ -1,15 +1,19 @@
 {
     "cli": {
         "version": ">= 5.0.0",
-        "appVersionSource": "remote"
+        "appVersionSource": "local"
     },
     "build": {
         "development": {
             "developmentClient": true,
             "distribution": "internal",
             "env": {
-                "APP_VARIANT": "snake",
-                "EXPO_PUBLIC_APP_VARIANT": "snake"
+                "APP_VARIANT": "math-rush",
+                "EXPO_PUBLIC_APP_VARIANT": "math-rush",
+                "EXPO_PUBLIC_TOPON_APP_ID": "h69b957b711216",
+                "EXPO_PUBLIC_TOPON_APP_KEY": "a154269700edcd90cad13bba52708af31",
+                "EXPO_PUBLIC_TOPON_INTERSTITIAL_ID": "n1h7d44fsjkhv1",
+                "EXPO_PUBLIC_TOPON_REWARDED_ID": "n1h7d44fsjkq50"
             }
         },
         "snake-preview": {
@@ -213,7 +217,8 @@
             },
             "ios": {
                 "distribution": "store",
-                "image": "latest"
+                "image": "latest",
+                "credentialsSource": "remote"
             }
         },
         "color-clash-preview": {
@@ -242,7 +247,8 @@
             },
             "ios": {
                 "distribution": "store",
-                "image": "latest"
+                "image": "latest",
+                "credentialsSource": "remote"
             }
         },
         "stack-blocks-preview": {
@@ -271,7 +277,8 @@
             },
             "ios": {
                 "distribution": "store",
-                "image": "latest"
+                "image": "latest",
+                "credentialsSource": "remote"
             }
         },
         "simon-says-preview": {
@@ -300,7 +307,8 @@
             },
             "ios": {
                 "distribution": "store",
-                "image": "latest"
+                "image": "latest",
+                "credentialsSource": "remote"
             }
         },
         "number-order-preview": {
@@ -329,7 +337,8 @@
             },
             "ios": {
                 "distribution": "store",
-                "image": "latest"
+                "image": "latest",
+                "credentialsSource": "remote"
             }
         },
         "tap-rhythm-preview": {
@@ -358,7 +367,8 @@
             },
             "ios": {
                 "distribution": "store",
-                "image": "latest"
+                "image": "latest",
+                "credentialsSource": "remote"
             }
         },
         "brick-breaker-preview": {
@@ -387,7 +397,8 @@
             },
             "ios": {
                 "distribution": "store",
-                "image": "latest"
+                "image": "latest",
+                "credentialsSource": "remote"
             }
         },
         "slice-frenzy-preview": {
@@ -416,7 +427,8 @@
             },
             "ios": {
                 "distribution": "store",
-                "image": "latest"
+                "image": "latest",
+                "credentialsSource": "remote"
             }
         },
         "tile-shift-preview": {
@@ -445,7 +457,8 @@
             },
             "ios": {
                 "distribution": "store",
-                "image": "latest"
+                "image": "latest",
+                "credentialsSource": "remote"
             }
         },
         "color-flood-preview": {
@@ -474,7 +487,8 @@
             },
             "ios": {
                 "distribution": "store",
-                "image": "latest"
+                "image": "latest",
+                "credentialsSource": "remote"
             }
         }
     },

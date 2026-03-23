@@ -1,4 +1,6 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { showInterstitial, showRewarded } from "@/shared/ads/AdManager";
+import GameOverScreen from "@/shared/components/GameOverScreen";
 import * as Haptics from "expo-haptics";
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
@@ -145,6 +147,7 @@ export default function LaserDodge() {
     isPlaying.value = false;
     setPhase("over");
     Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
+    showInterstitial();
     const finalTime = Math.floor(timeRef.current * 10) / 10;
     setSurvivalTime(finalTime);
     const stored = await AsyncStorage.getItem(STORAGE_KEY);
@@ -305,28 +308,25 @@ export default function LaserDodge() {
       playerY.value = newY;
     });
 
-  const startGame = useCallback(() => {
-    if (phase === "idle" || phase === "over") {
-      phaseRef.current = "playing";
-      isPlaying.value = true;
-      setPhase("playing");
-      timeRef.current = 0;
-      setSurvivalTime(0);
-      spawnTimerRef.current = 0;
-      difficultyRef.current = 1;
-      playerX.value = ARENA_WIDTH / 2;
-      playerY.value = ARENA_HEIGHT / 2;
-      startX.value = ARENA_WIDTH / 2;
-      startY.value = ARENA_HEIGHT / 2;
-      lasersRef.current.forEach((l, i) => {
-        l.state = "inactive";
-        l.timer = 0;
-        laserOpacities[i].value = 0;
-        laserThicknesses[i].value = 1;
-      });
-    }
+  const launchGame = useCallback(() => {
+    phaseRef.current = "playing";
+    isPlaying.value = true;
+    setPhase("playing");
+    timeRef.current = 0;
+    setSurvivalTime(0);
+    spawnTimerRef.current = 0;
+    difficultyRef.current = 1;
+    playerX.value = ARENA_WIDTH / 2;
+    playerY.value = ARENA_HEIGHT / 2;
+    startX.value = ARENA_WIDTH / 2;
+    startY.value = ARENA_HEIGHT / 2;
+    lasersRef.current.forEach((l, i) => {
+      l.state = "inactive";
+      l.timer = 0;
+      laserOpacities[i].value = 0;
+      laserThicknesses[i].value = 1;
+    });
   }, [
-    phase,
     isPlaying,
     playerX,
     playerY,
@@ -335,6 +335,13 @@ export default function LaserDodge() {
     laserOpacities,
     laserThicknesses,
   ]);
+
+  const startGame = useCallback(async () => {
+    if (phase === "idle") {
+      await showRewarded();
+      launchGame();
+    }
+  }, [phase, launchGame]);
 
   const playerStyle = useAnimatedStyle(() => ({
     transform: [
@@ -479,14 +486,14 @@ export default function LaserDodge() {
       )}
 
       {phase === "over" && (
-        <TouchableWithoutFeedback onPress={startGame}>
-          <View style={styles.overlay}>
-            <Text style={styles.gameOverText}>GAME OVER</Text>
-            <Text style={styles.finalTimeText}>{survivalTime.toFixed(1)}s</Text>
-            <Text style={styles.bestDisplay}>Best: {bestTime.toFixed(1)}s</Text>
-            <Text style={styles.subtitleText}>Tap to Restart</Text>
-          </View>
-        </TouchableWithoutFeedback>
+        <GameOverScreen
+          score={survivalTime}
+          highScore={bestTime}
+          scoreLabel="Time"
+          formatScore={(t) => `${t.toFixed(1)}s`}
+          accentColor="#00f5ff"
+          onReplay={launchGame}
+        />
       )}
     </View>
   );

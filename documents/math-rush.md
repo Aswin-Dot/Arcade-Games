@@ -1,10 +1,10 @@
-# App Store Submission — Simpli - Math Rush
+# App Store Submission — Math Rush
 
 ## App Identity
 
 | Field | Value |
 |-------|-------|
-| **App Name** | Simpli - Math Rush |
+| **App Name** | Math Rush |
 | **Subtitle** (30 chars max) | Quick Math Under Pressure |
 | **Bundle ID** | com.theze.mathrush |
 | **SKU** | simpli-math-rush-001 |
@@ -23,7 +23,7 @@
 
 ## App Icon
 
-File: `documents/icons/math-rush.png` (1024x1024, no alpha, no rounded corners)
+File: `assets/images/icons/math-rush.png` (1024x1024, no alpha, no rounded corners)
 
 ## Description
 
@@ -31,7 +31,7 @@ File: `documents/icons/math-rush.png` (1024x1024, no alpha, no rounded corners)
 Solve math problems before time runs out. Addition, subtraction, and more — all against the clock. Train your brain while having fun.
 
 ### Full Description
-Simpli - Math Rush is a fast-paced mental arithmetic game that challenges your brain under pressure. A math equation appears on screen with multiple answer choices. Pick the correct answer before the timer bar runs out.
+Math Rush is a fast-paced mental arithmetic game that challenges your brain under pressure. A math equation appears on screen with multiple answer choices. Pick the correct answer before the timer bar runs out.
 
 Start with simple addition and subtraction. As you build a streak, the difficulty ramps up with larger numbers, multiplication, and tighter time limits. One wrong answer or one timeout ends your run.
 
@@ -47,7 +47,7 @@ FEATURES:
 HOW TO PLAY:
 A math equation appears at the top of the screen. Two or more answer options appear below. Tap the correct answer before the timer runs out. Each correct answer extends the timer and increases difficulty. One wrong answer or one timeout ends the game.
 
-Simpli - Math Rush is part of the Simpli Games collection, a series of fun, free arcade games designed for quick play sessions and endless replayability. Perfect for sharpening your mental math skills during commutes, breaks, or any spare moment.
+Math Rush is part of the Simpli Games collection, a series of fun, free arcade games designed for quick play sessions and endless replayability. Perfect for sharpening your mental math skills during commutes, breaks, or any spare moment.
 
 Download now and put your math skills to the test.
 

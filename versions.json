@@ -1,0 +1,62 @@
+{
+  "snake": {
+    "version": "1.0.0",
+    "buildNumber": 7
+  },
+  "circle-shrink": {
+    "version": "1.0.0",
+    "buildNumber": 2
+  },
+  "laser-dodge": {
+    "version": "1.0.0",
+    "buildNumber": 2
+  },
+  "pulse-lanes": {
+    "version": "1.0.0",
+    "buildNumber": 2
+  },
+  "math-rush": {
+    "version": "1.0.0",
+    "buildNumber": 7
+  },
+  "gravity-flip": {
+    "version": "1.0.0",
+    "buildNumber": 1
+  },
+  "color-clash": {
+    "version": "1.0.0",
+    "buildNumber": 1
+  },
+  "stack-blocks": {
+    "version": "1.0.0",
+    "buildNumber": 1
+  },
+  "simon-says": {
+    "version": "1.0.0",
+    "buildNumber": 1
+  },
+  "number-order": {
+    "version": "1.0.0",
+    "buildNumber": 1
+  },
+  "tap-rhythm": {
+    "version": "1.0.0",
+    "buildNumber": 1
+  },
+  "brick-breaker": {
+    "version": "1.0.0",
+    "buildNumber": 1
+  },
+  "slice-frenzy": {
+    "version": "1.0.0",
+    "buildNumber": 1
+  },
+  "tile-shift": {
+    "version": "1.0.0",
+    "buildNumber": 1
+  },
+  "color-flood": {
+    "version": "1.0.0",
+    "buildNumber": 1
+  }
+}

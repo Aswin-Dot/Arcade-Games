@@ -62,6 +62,17 @@ const runEasBuild = ({ profileSuffix, targetPlatform, local = false }) => {
 };
 
 if (action === "preview" || action === "build") {
+  // Auto-bump build number before production builds
+  if (action === "build") {
+    const bump = spawnSync("node", ["./scripts/bump-build.js"], {
+      stdio: "inherit",
+      env,
+    });
+    if (bump.status !== 0) {
+      console.error("Failed to bump build number");
+      process.exit(1);
+    }
+  }
   const suffix = action === "preview" ? "preview" : "production";
   runEasBuild({
     profileSuffix: suffix,
@@ -77,9 +88,19 @@ if (action === "local-build") {
     process.exit(1);
   }
 
+  // Auto-bump build number for local builds too
+  const bump = spawnSync("node", ["./scripts/bump-build.js"], {
+    stdio: "inherit",
+    env,
+  });
+  if (bump.status !== 0) {
+    console.error("Failed to bump build number");
+    process.exit(1);
+  }
+
   if (artifact === "ipa") {
     runEasBuild({
-      profileSuffix: "preview",
+      profileSuffix: "production",
       targetPlatform: "ios",
       local: true,
     });

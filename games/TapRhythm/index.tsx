@@ -16,6 +16,8 @@ import Animated, {
 import * as Haptics from 'expo-haptics';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useGameLoop } from '../../shared/hooks/useGameLoop';
+import { showInterstitial, showRewarded } from '@/shared/ads/AdManager';
+import GameOverScreen from '@/shared/components/GameOverScreen';
 
 const STORAGE_KEY = '@tap-rhythm/highscore';
 const BPM = 90;
@@ -75,6 +77,7 @@ export default function TapRhythm() {
     phaseRef.current = 'over';
     setPhase('over');
     Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
+    showInterstitial();
     const finalScore = scoreRef.current;
     const stored = await AsyncStorage.getItem(STORAGE_KEY);
     const prev = stored ? parseInt(stored, 10) : 0;
@@ -125,23 +128,27 @@ export default function TapRhythm() {
 
   useGameLoop(tick, phase === 'playing');
 
+  const launchGame = useCallback(() => {
+    scoreRef.current = 0;
+    livesRef.current = 3;
+    comboRef.current = 0;
+    beatTimerRef.current = 0;
+    beatTappedRef.current = false;
+    resultTimerRef.current = 0;
+    setScore(0);
+    setLives(3);
+    setCombo(0);
+    setTapResult(null);
+    pulseScale.value = 1;
+    ringOpacity.value = 0.3;
+    phaseRef.current = 'playing';
+    setPhase('playing');
+  }, [pulseScale, ringOpacity]);
+
   const handleTap = useCallback(() => {
-    if (phaseRef.current === 'idle' || phaseRef.current === 'over') {
-      // Start / restart
-      scoreRef.current = 0;
-      livesRef.current = 3;
-      comboRef.current = 0;
-      beatTimerRef.current = 0;
-      beatTappedRef.current = false;
-      resultTimerRef.current = 0;
-      setScore(0);
-      setLives(3);
-      setCombo(0);
-      setTapResult(null);
-      pulseScale.value = 1;
-      ringOpacity.value = 0.3;
-      phaseRef.current = 'playing';
-      setPhase('playing');
+    if (phaseRef.current === 'idle') {
+      showRewarded();
+      launchGame();
       return;
     }
 
@@ -202,7 +209,7 @@ export default function TapRhythm() {
       withTiming(0.85, { duration: 60 }),
       withTiming(1.0, { duration: 120 }),
     );
-  }, [pulseScale, ringOpacity, triggerGameOver]);
+  }, [pulseScale, ringOpacity, triggerGameOver, launchGame]);
 
   const resultColor =
     tapResult === 'perfect' ? '#ffd700' : tapResult === 'good' ? '#44dd66' : '#ff4444';
@@ -252,12 +259,7 @@ export default function TapRhythm() {
         )}
 
         {phase === 'over' && (
-          <View style={styles.overlay}>
-            <Text style={styles.gameOverText}>GAME OVER</Text>
-            <Text style={styles.finalScoreText}>Score: {score}</Text>
-            <Text style={styles.bestDisplay}>Best: {highScore}</Text>
-            <Text style={styles.subtitleText}>Tap to Restart</Text>
-          </View>
+          <GameOverScreen score={score} highScore={highScore} accentColor="#ff00ff" onReplay={launchGame} />
         )}
       </View>
     </TouchableWithoutFeedback>

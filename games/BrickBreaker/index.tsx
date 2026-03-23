@@ -5,6 +5,8 @@ import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import * as Haptics from 'expo-haptics';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useGameLoop } from '../../shared/hooks/useGameLoop';
+import { showInterstitial, showRewarded } from '@/shared/ads/AdManager';
+import GameOverScreen from '@/shared/components/GameOverScreen';
 
 const STORAGE_KEY = '@brick-breaker/highscore';
 const { width: SW, height: SH } = Dimensions.get('window');
@@ -88,6 +90,7 @@ export default function BrickBreaker() {
     phaseRef.current = 'over';
     setPhase('over');
     Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
+    showInterstitial();
     const s = scoreRef.current;
     const stored = await AsyncStorage.getItem(STORAGE_KEY);
     const prev = stored ? parseInt(stored, 10) : 0;
@@ -232,7 +235,7 @@ export default function BrickBreaker() {
     [paddleX],
   );
 
-  const startGame = useCallback(() => {
+  const launchGame = useCallback(() => {
     scoreRef.current = 0;
     livesRef.current = 3;
     ballSpeedRef.current = BALL_SPEED_START;
@@ -254,7 +257,7 @@ export default function BrickBreaker() {
   }, [ballX, ballY, paddleX]);
 
   const handleTap = useCallback(() => {
-    if (phase === 'idle' || phase === 'over') { startGame(); return; }
+    if (phase === 'idle') { showRewarded(); launchGame(); return; }
     // Tap to launch if not yet launched
     if (phase === 'playing' && !launched.current) {
       launched.current = true;
@@ -262,7 +265,7 @@ export default function BrickBreaker() {
       velXRef.current = Math.cos(angle);
       velYRef.current = Math.sin(angle);
     }
-  }, [phase, startGame]);
+  }, [phase, launchGame]);
 
   return (
     <GestureDetector gesture={panGesture}>
@@ -315,12 +318,7 @@ export default function BrickBreaker() {
         )}
 
         {phase === 'over' && (
-          <View style={styles.overlay} onTouchEnd={handleTap}>
-            <Text style={styles.gameOverText}>GAME OVER</Text>
-            <Text style={styles.finalScoreText}>Score: {score}</Text>
-            <Text style={styles.bestDisplay}>Best: {highScore}</Text>
-            <Text style={styles.subtitleText}>Tap to Restart</Text>
-          </View>
+          <GameOverScreen score={score} highScore={highScore} accentColor="#ff6b35" onReplay={launchGame} />
         )}
 
         {phase === 'playing' && !launched.current && (
