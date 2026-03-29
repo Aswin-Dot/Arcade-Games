@@ -1,4 +1,4 @@
-# Publishing Guide — Simpli Games
+# Publishing Guide — Arcade Games
 
 This guide covers the complete process for building, submitting, and publishing any game from this monorepo to the Apple App Store. It is designed to be followed by a developer, AI assistant, or automated CI pipeline.
 
@@ -134,10 +134,10 @@ APP_VARIANT=snake eas submit --profile snake-production --platform ios
 2. Click "+" → "New App"
 3. Fill in:
    - **Platform**: iOS
-   - **Name**: `Simpli - <Game Name>` (e.g. "Simpli - Snake")
+   - **Name**: `<Game Name> by Theze` (e.g. "Snake by Theze")
    - **Primary Language**: English (U.S.)
    - **Bundle ID**: Select `com.theze.<game>` (must match `app.config.js`)
-   - **SKU**: `simpli-<game>-001`
+   - **SKU**: `<game>-001`
 4. Click "Create"
 
 ### Step 2: Create App in TopOn Dashboard

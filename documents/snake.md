@@ -7,7 +7,7 @@
 | **App Name** | Classic Snake |
 | **Subtitle** (30 chars max) | Classic Snake, Neon Style |
 | **Bundle ID** | com.theze.snake |
-| **SKU** | simpli-snake-001 |
+| **SKU** | snake-001 |
 | **Primary Category** | Games |
 | **Secondary Category** | Entertainment |
 | **Content Rating** | 4+ |
@@ -46,7 +46,7 @@ FEATURES:
 HOW TO PLAY:
 Swipe in any direction to guide your snake. Eat the food that appears on the grid to grow longer and increase your score. Avoid hitting the walls or your own tail. The longer you survive, the higher your score.
 
-Classic Snake is part of the Simpli Games collection, a series of fun, free arcade games designed for quick play sessions and endless replayability.
+Classic Snake is part of the Arcade Games collection, a series of fun, free arcade games designed for quick play sessions and endless replayability.
 
 Download now and see how high you can score.
 

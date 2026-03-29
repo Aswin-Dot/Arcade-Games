@@ -311,11 +311,11 @@ Legend: 🔵 Not Started · 🟡 In Progress · 🟢 Done · 🔴 Rejected / Iss
 
 | # | Game | iOS Status | Android Status | Live? |
 |---|------|-----------|----------------|-------|
-| 1 | Snake Classic | 🔵 Not Started | 🔵 Not Started | ☐ |
-| 2 | Circle Shrink | 🔵 Not Started | 🔵 Not Started | ☐ |
-| 3 | Laser Dodge | 🔵 Not Started | 🔵 Not Started | ☐ |
-| 4 | Pulse Lanes | 🔵 Not Started | 🔵 Not Started | ☐ |
-| 5 | Math Rush | 🔵 Not Started | 🔵 Not Started | ☐ |
+| 1 | Snake Classic | 🟡 In Progress | 🔵 Not Started | ☐ |
+| 2 | Circle Shrink | 🟡 In Progress| 🔵 Not Started | ☐ |
+| 3 | Laser Dodge | 🟡 In Progress | 🔵 Not Started | ☐ |
+| 4 | Pulse Lanes | 🟡 In Progress | 🔵 Not Started | ☐ |
+| 5 | Math Rush | 🟡 In Progress | 🔵 Not Started | ☐ |
 | 6 | Gravity Flip | 🔵 Not Started | 🔵 Not Started | ☐ |
 | 7 | Color Clash | 🔵 Not Started | 🔵 Not Started | ☐ |
 | 8 | Stack Blocks | 🔵 Not Started | 🔵 Not Started | ☐ |

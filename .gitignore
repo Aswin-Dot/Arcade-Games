@@ -2,6 +2,7 @@
 
 # dependencies
 node_modules/
+package-lock.json
 
 # Expo
 .expo/
@@ -47,3 +48,14 @@ app-example
 
 # Local env (EAS project IDs are hardcoded in app.config.js — .env not needed)
 .env
+
+# Claude
+.claude/
+
+# Secrets
+app.config.js
+eas.json
+
+# Documents
+documents/
+RELEASE_TRACKER.md

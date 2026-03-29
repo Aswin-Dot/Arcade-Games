@@ -7,7 +7,7 @@
 | **App Name** | Circle Shrink |
 | **Subtitle** (30 chars max) | Tap Fast Before They Vanish |
 | **Bundle ID** | com.theze.circleshrink |
-| **SKU** | simpli-circle-shrink-001 |
+| **SKU** | circle-shrink-001 |
 | **Primary Category** | Games |
 | **Secondary Category** | Entertainment |
 | **Content Rating** | 4+ |
@@ -46,7 +46,7 @@ FEATURES:
 HOW TO PLAY:
 Circles appear on screen and begin shrinking immediately. Tap each circle before it disappears. The faster you tap, the more points you earn. Miss a circle and the game ends. Each round gets faster and more challenging.
 
-Circle Shrink is part of the Simpli Games collection, a series of fun, free arcade games designed for quick play sessions and endless replayability.
+Circle Shrink is part of the Arcade Games collection, a series of fun, free arcade games designed for quick play sessions and endless replayability.
 
 Download now and put your reflexes to the test.
 

@@ -7,7 +7,7 @@
 | **App Name** | Math Rush |
 | **Subtitle** (30 chars max) | Quick Math Under Pressure |
 | **Bundle ID** | com.theze.mathrush |
-| **SKU** | simpli-math-rush-001 |
+| **SKU** | math-rush-001 |
 | **Primary Category** | Games |
 | **Secondary Category** | Education |
 | **Content Rating** | 4+ |
@@ -47,7 +47,7 @@ FEATURES:
 HOW TO PLAY:
 A math equation appears at the top of the screen. Two or more answer options appear below. Tap the correct answer before the timer runs out. Each correct answer extends the timer and increases difficulty. One wrong answer or one timeout ends the game.
 
-Math Rush is part of the Simpli Games collection, a series of fun, free arcade games designed for quick play sessions and endless replayability. Perfect for sharpening your mental math skills during commutes, breaks, or any spare moment.
+Math Rush is part of the Arcade Games collection, a series of fun, free arcade games designed for quick play sessions and endless replayability. Perfect for sharpening your mental math skills during commutes, breaks, or any spare moment.
 
 Download now and put your math skills to the test.
 

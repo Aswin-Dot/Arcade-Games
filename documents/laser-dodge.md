@@ -7,7 +7,7 @@
 | **App Name** | Laser Dodge |
 | **Subtitle** (30 chars max) | Dodge Lasers, Stay Alive |
 | **Bundle ID** | com.theze.laserdodge |
-| **SKU** | simpli-laser-dodge-001 |
+| **SKU** | laser-dodge-001 |
 | **Primary Category** | Games |
 | **Secondary Category** | Entertainment |
 | **Content Rating** | 4+ |
@@ -47,7 +47,7 @@ FEATURES:
 HOW TO PLAY:
 Drag your character around the screen to avoid the incoming laser beams. Lasers fire from the top, bottom, left, and right edges. Watch for the warning indicators that show where the next laser will appear. Survive as long as you can to achieve the highest score.
 
-Laser Dodge is part of the Simpli Games collection, a series of fun, free arcade games designed for quick play sessions and endless replayability.
+Laser Dodge is part of the Arcade Games collection, a series of fun, free arcade games designed for quick play sessions and endless replayability.
 
 Download now and see how long you can dodge.
 

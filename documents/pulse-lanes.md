@@ -7,7 +7,7 @@
 | **App Name** | Pulse Lanes |
 | **Subtitle** (30 chars max) | Switch Lanes, Dodge Pulses |
 | **Bundle ID** | com.theze.pulselanes |
-| **SKU** | simpli-pulse-lanes-001 |
+| **SKU** | pulse-lanes-001 |
 | **Primary Category** | Games |
 | **Secondary Category** | Entertainment |
 | **Content Rating** | 4+ |
@@ -47,7 +47,7 @@ FEATURES:
 HOW TO PLAY:
 Your character moves forward automatically in one of three lanes. Tap the left side of the screen to move left, or the right side to move right. Dodge the pulse obstacles that appear in each lane. The longer you survive, the faster the pulses come. Time your lane switches to weave through the patterns.
 
-Pulse Lanes is part of the Simpli Games collection, a series of fun, free arcade games designed for quick play sessions and endless replayability.
+Pulse Lanes is part of the Arcade Games collection, a series of fun, free arcade games designed for quick play sessions and endless replayability.
 
 Download now and ride the pulse.
 
