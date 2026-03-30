@@ -1,10 +1,10 @@
 # React Native Arcade
 
-> 15 mobile games. One codebase. Each published as its own App Store app.
+> 15 mobile games. One codebase. Each is published as its own App Store app.
 
 A production React Native monorepo built with Expo SDK 54. Every game ships as an independent iOS app — its own name, icon, bundle ID, and store listing — all from a single shared codebase. Built, shipped, and maintained solo.
 
-**15 games live on the App Store** · React Native · Expo SDK 54 · TopOn Ads · EAS Build · Firebase Hosting
+**15 games in one codebase** · React Native · Expo SDK 54 · TopOn Ads · EAS Build · Firebase Hosting
 
 ---
 
